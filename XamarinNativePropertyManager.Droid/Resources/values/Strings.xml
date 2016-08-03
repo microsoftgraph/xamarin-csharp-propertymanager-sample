@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Property Manager</string>
+	<string name="login">Sign in with your work or school account in order to use this sample application. Access the sample code for this application at https://github.com/coatsy/xplat-graph</string>
+	<string name="who_are_you">Who are you?</string>
+	<string name="sign_in">Sign in</string>
+	<string name="type_a_message">Type a message...</string>
+	<string name="type_a_task">Type a task...</string>
+	<string name="details">Fill out the details of this property down below, these will be stored in Office 365 and be available to all user of this app.</string>
+  <string name="stored_details">Find the details of this property down below, these are stored in Office 365 and be available to all user of this app.</string>
+  <string name="street_name">Street name</string>
+	<string name="description">Description</string>
+	<string name="rooms">Rooms</string>
+	<string name="living_area">Living area</string>
+	<string name="lot_size">Lot size</string>
+	<string name="operating_costs">Operating costs</string>
+</resources>

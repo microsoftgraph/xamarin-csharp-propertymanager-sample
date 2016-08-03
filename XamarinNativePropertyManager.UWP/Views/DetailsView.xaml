@@ -1,0 +1,84 @@
+﻿<views:MvxWindowsPage
+    x:Class="XamarinNativePropertyManager.UWP.Views.DetailsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:MvvmCross.WindowsUWP.Views"
+    mc:Ignorable="d">
+
+    <views:MvxWindowsPage.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <ContinuumNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </views:MvxWindowsPage.Transitions>
+
+    <Grid Style="{StaticResource PageRootGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="77"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--Header-->
+        <Grid Grid.Row="0">
+            <Button Style="{StaticResource HeaderButtonStyle}"
+                    Content="&#xE913;"
+                    IsHitTestVisible="False"
+                    IsTabStop="False"/>
+            <TextBlock Text="{Binding Title}"
+                       Style="{StaticResource PageTitleTextBlock}"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" Padding="15" VerticalScrollBarVisibility="Auto"
+                      VerticalScrollMode="Auto">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                <TextBlock Text="Fill out the details of this property down below, these will be stored in Office 365 and be available to all user of this app." 
+                           TextWrapping="Wrap"/>
+                <TextBox x:Name="StreetNameTextBox" Header="Street name" Margin="0,15" 
+                         Text="{Binding StreetName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         PlaceholderText="Example: 915 Mulberry Lane" KeyUp="OnTextBoxKeyUp"
+                         Visibility="{Binding IsExisting, Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
+                <TextBox x:Name="DescriptionTextBox" AcceptsReturn="True" TextWrapping="Wrap" Header="Description"  Margin="0,15"
+                         Text="{Binding Details.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinHeight="60"
+                         TextChanged="OnTextChanged"/>
+                <TextBox x:Name="RoomsTextBox" Header="Rooms" Margin="0,15" 
+                         Text="{Binding Details.Rooms, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         PlaceholderText="Use only digits" InputScope="Number"
+                         TextChanged="OnTextChanged" KeyUp="OnTextBoxKeyUp"/>
+                <TextBox x:Name="LivingAreaTextBox" Header="Living area" Margin="0,15" 
+                         Text="{Binding Details.LivingArea, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         PlaceholderText="Use only digits" InputScope="Number"
+                         TextChanged="OnTextChanged" KeyUp="OnTextBoxKeyUp"/>
+                <TextBox x:Name="LotSizeTextBox" Header="Lot size" Margin="0,15" 
+                         Text="{Binding Details.LotSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         PlaceholderText="Use only digits" InputScope="Number"
+                         TextChanged="OnTextChanged" KeyUp="OnTextBoxKeyUp"/>
+                <TextBox x:Name="OperatingCostsTextBox" Header="Operating costs" 
+                         Margin="0,15" Text="{Binding Details.OperatingCosts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         PlaceholderText="Use only digits" InputScope="Number"
+                         TextChanged="OnTextChanged" KeyUp="OnTextBoxKeyUp"/>
+            </StackPanel>
+        </ScrollViewer>
+        
+        <Grid Grid.Row="2" Padding="15,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Cancel" HorizontalAlignment="Stretch"
+                    Command="{Binding GoBackCommand}"
+                    Height="38"
+                    IsEnabled="{Binding IsLoading, Converter={StaticResource InverseBooleanConverter}}"/>
+            <Button Grid.Column="2" Content="Save" HorizontalAlignment="Stretch"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Command="{Binding SaveDetailsCommand}"
+                    IsEnabled="{Binding IsValid}"/>
+        </Grid>
+    </Grid>
+</views:MvxWindowsPage>

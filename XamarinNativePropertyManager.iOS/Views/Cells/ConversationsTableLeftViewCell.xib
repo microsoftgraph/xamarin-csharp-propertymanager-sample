@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="153" id="JsQ-Mh-C6G" customClass="ConversationsTableLeftViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="142"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JsQ-Mh-C6G" id="cpu-Dw-WM8">
+                <rect key="frame" x="0.0" y="0.0" width="343" height="141"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uNe-w8-lcd">
+                        <rect key="frame" x="11" y="8" width="264" height="125"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXa-ov-swr">
+                                <rect key="frame" x="10" y="98" width="42" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47058823529411764" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uy4-AK-uGj">
+                        <rect key="frame" x="21" y="17" width="243" height="90"/>
+                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="nXa-ov-swr" firstAttribute="top" secondItem="uy4-AK-uGj" secondAttribute="bottom" constant="3" id="1aj-MC-Grn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="uy4-AK-uGj" secondAttribute="bottom" constant="27" id="JXz-w5-5qA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="uNe-w8-lcd" secondAttribute="bottom" id="Mmz-ya-lfp"/>
+                    <constraint firstItem="uy4-AK-uGj" firstAttribute="top" secondItem="cpu-Dw-WM8" secondAttribute="topMargin" constant="7" id="atK-PS-H4G"/>
+                    <constraint firstItem="uNe-w8-lcd" firstAttribute="leading" secondItem="cpu-Dw-WM8" secondAttribute="leadingMargin" constant="5" id="bDB-oe-DJZ"/>
+                    <constraint firstItem="uy4-AK-uGj" firstAttribute="leading" secondItem="cpu-Dw-WM8" secondAttribute="leadingMargin" constant="15" id="fTc-aS-VTB"/>
+                    <constraint firstItem="uNe-w8-lcd" firstAttribute="top" secondItem="cpu-Dw-WM8" secondAttribute="topMargin" id="gVW-ST-bvq"/>
+                    <constraint firstItem="nXa-ov-swr" firstAttribute="leading" secondItem="uy4-AK-uGj" secondAttribute="leading" id="m2Y-c5-i7v"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="uNe-w8-lcd" secondAttribute="trailing" constant="60" id="tJc-3S-Lht"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="uy4-AK-uGj" secondAttribute="trailing" constant="70" id="ykm-qp-ujA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="MessageLabel" destination="uy4-AK-uGj" id="rkn-6u-xd0"/>
+                <outlet property="SenderLabel" destination="nXa-ov-swr" id="NFr-Id-1it"/>
+            </connections>
+            <point key="canvasLocation" x="300.5" y="209"/>
+        </tableViewCell>
+    </objects>
+</document>

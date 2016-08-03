@@ -1,0 +1,221 @@
+﻿<views:MvxWindowsPage
+    x:Class="XamarinNativePropertyManager.UWP.Views.GroupView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:MvvmCross.WindowsUWP.Views"
+    xmlns:controls="using:XamarinNativePropertyManager.UWP.Controls"
+    xmlns:converters="using:XamarinNativePropertyManager.UWP.Converters"
+    mc:Ignorable="d">
+
+    <views:MvxWindowsPage.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <ContinuumNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </views:MvxWindowsPage.Transitions>
+
+    <views:MvxWindowsPage.Resources>
+        <converters:FileTypeToIconConverter x:Key="FileTypeToIconConverter"/>
+
+        <Style x:Key="ListViewStyle" TargetType="ListView">
+            <Setter Property="IsItemClickEnabled" Value="True"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="SelectionMode" Value="None"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="IsMultiSelectCheckBoxEnabled" Value="False"/>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Margin" Value="0"/>
+                        <Setter Property="Padding" Value="0"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="GridViewStyle" TargetType="GridView">
+            <Setter Property="IsItemClickEnabled" Value="True"/>
+            <Setter Property="SelectionMode" Value="None"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="IsMultiSelectCheckBoxEnabled" Value="False"/>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Margin" Value="0"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </views:MvxWindowsPage.Resources>
+
+    <Grid Style="{StaticResource PageRootGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="77"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Header-->
+        <Grid Grid.Row="0">
+            <Button Style="{StaticResource HeaderButtonStyle}"
+                    Content="&#xE913;"
+                    IsHitTestVisible="False"
+                    IsTabStop="False"/>
+            <TextBlock Text="{Binding Group.DisplayName}"
+                       Style="{StaticResource PageTitleTextBlock}"/>
+            <ProgressRing Style="{StaticResource AccentHeaderProgressRingStyle}"
+                          IsActive="{Binding IsLoading}"/>
+        </Grid>
+
+        <Pivot Grid.Row="1">
+            <!--Details-->
+            <PivotItem Header="Details" Margin="0">
+                <ScrollViewer VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto"
+                              Padding="15,0,15,15">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                        <TextBlock Text="Find the details of this property down below, these are stored in Office 365 and be available to all user of this app." 
+                           TextWrapping="Wrap" Margin="0,0,0,15"/>
+                        <controls:TileListViewItem Header="{Binding Details.Description}"
+                                               Text="Description" IsHitTestVisible="False"
+                                               Icon="&#xE913;" IconSize="26" TextWrapping="Wrap"
+                                               TileBackground="Transparent" TileForeground="Black"
+                                               Margin="-20,0,-15,0"/>
+                        <controls:TileListViewItem Header="{Binding Details.Rooms}"
+                                               Text="Rooms" IsHitTestVisible="False"
+                                               Icon="&#xE8D7;" IconSize="26" TextWrapping="Wrap"
+                                               TileBackground="Transparent" TileForeground="Black"
+                                               Margin="-20,0,-15,0"/>
+                        <controls:TileListViewItem Header="{Binding Details.LivingArea}"
+                                               Text="Living area" IsHitTestVisible="False"
+                                               Icon="&#xE80F;" IconSize="26" TextWrapping="Wrap"
+                                               TileBackground="Transparent" TileForeground="Black"
+                                               Margin="-20,0,-15,0"/>
+                        <controls:TileListViewItem Header="{Binding Details.LotSize}"
+                                               Text="Lot size" IsHitTestVisible="False"
+                                               Icon="&#xE707;" IconSize="26" TextWrapping="Wrap"
+                                               TileBackground="Transparent" TileForeground="Black"
+                                               Margin="-20,0,-15,0"/>
+                        <controls:TileListViewItem Header="{Binding Details.OperatingCosts}"
+                                               Text="Operating costs" IsHitTestVisible="False"
+                                               Icon="&#xE8EC;" IconSize="26" TextWrapping="Wrap"
+                                               TileBackground="Transparent" TileForeground="Black"
+                                               Margin="-20,0,-15,0"/>
+                        <controls:PointerTextBlock Text="Edit details" Foreground="{StaticResource AccentColorBrush}"
+                                               Margin="0,15,0,0" Tapped="OnEditDetailsButtonTapped"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+
+            <!--Conversations-->
+            <PivotItem Header="Conversations" Margin="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <!--Conversations-->
+                    <GridView x:Name="ConversationsGridView" Grid.Row="0" 
+                              ItemsSource="{Binding Conversations}"
+                              Style="{StaticResource GridViewStyle}"
+                              ItemTemplateSelector="{StaticResource ConversationMessageTemplateSelector}">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+
+                    <!--TextBox-->
+                    <Border Grid.Row="1" Style="{StaticResource MessageTextBoxFrameBorderStyle}">
+                        <Grid>
+                            <TextBox Style="{StaticResource MessageTextBoxStyle}"
+                                     PlaceholderText="Type a message" Text="{Binding ConversationText, 
+                                Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyUp="OnMessageKeyUp"/>
+                            <Button Style="{StaticResource AccentTextBoxButtonStyle}"
+                                    Content="&#xE724;"
+                                    Command="{Binding AddConversationCommand}"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </PivotItem>
+
+            <!--Files-->
+            <PivotItem Header="Files" Margin="0">
+                <Grid>
+                    <ListView x:Name="FilesListView" ItemsSource="{Binding Files}" 
+                              Style="{StaticResource ListViewStyle}" ItemClick="OnFileItemClick">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:TileListViewItem Header="{Binding DriveItem.Name}"
+                                                           Text="{Binding DriveItem.WebUrl}"
+                                                           Icon="{Binding Type, Converter={StaticResource FileTypeToIconConverter}}"
+                                                           IconSize="26"
+                                                           TileBackground="{StaticResource AccentColorBrush}"
+                                                           TileForeground="White" IsHitTestVisible="False"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.HeaderTemplate>
+                            <DataTemplate>
+                                <controls:TileListViewItem Header="Add a file"
+                                                           Icon="&#xE948;" IconSize="18"
+                                                           TileBackground="LightGray" TileForeground="Black"
+                                                           Tapped="OnAddFileItemTapped"/>
+                            </DataTemplate>
+                        </ListView.HeaderTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsStackPanel Orientation="Vertical" HorizontalAlignment="Stretch"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+
+            <!--Tasks-->
+            <PivotItem Header="Tasks" Margin="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="TasksListView" ItemsSource="{Binding Tasks}" 
+                              Style="{StaticResource ListViewStyle}" ItemClick="OnTaskItemClick">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:TileListViewItem Header="{Binding Title}"
+                                                           Icon="&#xEADF;"
+                                                           IconSize="26"
+                                                           TileBackground="{StaticResource AccentColorBrush}"
+                                                           TileForeground="White" IsHitTestVisible="False"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsStackPanel Orientation="Vertical" HorizontalAlignment="Stretch"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+
+                    <!--TextBox-->
+                    <Border Grid.Row="1" Style="{StaticResource MessageTextBoxFrameBorderStyle}">
+                        <Grid>
+                            <TextBox Style="{StaticResource MessageTextBoxStyle}"
+                                     PlaceholderText="Type a task" Text="{Binding TaskText, 
+                                Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyUp="OnTaskKeyUp"/>
+                            <Button Style="{StaticResource AccentTextBoxButtonStyle}"
+                                    Content="&#xE724;"
+                                    Command="{Binding AddTaskCommand}"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</views:MvxWindowsPage>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <MvxListView
+        android:id="@+id/conversation_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:paddingBottom="10dp"
+        android:divider="#00000000"
+        android:listSelector="@android:color/transparent"
+        local:MvxBind="ItemsSource Conversations"
+        local:MvxItemTemplate="@layout/conversationleftlistviewitem" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@color/lightGrayColor"
+            android:layout_marginTop="1dp" />
+        <EditText
+            android:id="@+id/conversation_edit_text"
+            style="@style/FullWidthEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/type_a_message"
+            android:layout_marginRight="60dp"
+            android:inputType="text"
+            android:singleLine="true"
+            android:imeOptions="actionSend"
+            local:MvxBind="Text ConversationText" />
+        <ImageButton
+            android:id="@+id/add_conversation_button"
+            android:src="@drawable/ic_send_black_48dp"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:tint="@color/accentColor"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:padding="15dp"
+            local:MvxBind="Click AddConversationCommand" />
+    </RelativeLayout>
+</RelativeLayout>

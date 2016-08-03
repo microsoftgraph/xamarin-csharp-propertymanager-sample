@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupsView">
+            <connections>
+                <outlet property="SearchBar" destination="NlL-2u-LLk" id="I8U-JG-TZa"/>
+                <outlet property="TableView" destination="veU-Lz-ZyJ" id="gDH-R6-ezG"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <subviews>
+                <searchBar contentMode="redraw" placeholder="Find a property" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlL-2u-LLk">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="barTintColor" red="0.0" green="0.46014816798929487" blue="0.82574943438914028" alpha="1" colorSpace="calibratedRGB"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="yes"/>
+                    <scopeButtonTitles>
+                        <string>Title</string>
+                        <string>Title</string>
+                    </scopeButtonTitles>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="veU-Lz-ZyJ">
+                    <rect key="frame" x="0.0" y="44" width="600" height="492"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="veU-Lz-ZyJ" firstAttribute="top" secondItem="NlL-2u-LLk" secondAttribute="bottom" id="00h-jz-EOZ"/>
+                <constraint firstItem="NlL-2u-LLk" firstAttribute="top" secondItem="2" secondAttribute="top" id="CaY-tn-VMI"/>
+                <constraint firstItem="veU-Lz-ZyJ" firstAttribute="width" secondItem="2" secondAttribute="width" id="JyW-Z2-mew"/>
+                <constraint firstItem="veU-Lz-ZyJ" firstAttribute="height" secondItem="2" secondAttribute="height" constant="-108" id="LtE-vE-0IG"/>
+                <constraint firstItem="NlL-2u-LLk" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="Yfz-fx-nlI"/>
+                <constraint firstItem="NlL-2u-LLk" firstAttribute="width" secondItem="2" secondAttribute="width" id="fwi-xN-4mL"/>
+                <constraint firstItem="veU-Lz-ZyJ" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="usA-nj-wyY"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+</document>

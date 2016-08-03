@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:gravity="center"
+    android:padding="25dp">
+    <ImageView
+        android:src="@drawable/ic_account_circle_black_48dp"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:tint="@color/accentColor"
+        android:layout_marginTop="-50dp" />
+    <TextView
+        android:text="@string/who_are_you"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp" />
+    <TextView
+        android:text="@string/login"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="15dp" />
+    <Button
+        android:text="@string/sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Light.AccentButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        local:MvxBind="Click LoginCommand; Visibility InvertedVisibility(IsLoading)" />
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar1"
+        android:indeterminateTint="@color/accentColor"
+        android:indeterminate="true"
+        local:MvxBind="Visibility Visibility(IsLoading)" />
+</LinearLayout>

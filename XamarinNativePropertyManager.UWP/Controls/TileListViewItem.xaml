@@ -1,0 +1,38 @@
+﻿<UserControl
+    x:Class="XamarinNativePropertyManager.UWP.Controls.TileListViewItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <ListViewItem Padding="15,10" HorizontalAlignment="Stretch" 
+                  HorizontalContentAlignment="Stretch">
+        <Grid HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Background="{x:Bind TileBackground, Mode=OneWay}" 
+                    Grid.Column="0" VerticalAlignment="Top" Height="40">
+                <TextBlock Text="{x:Bind Icon, Mode=OneWay}" 
+                           Foreground="{x:Bind TileForeground, Mode=OneWay}"
+                           FontSize="{x:Bind IconSize, Mode=OneWay}"
+                           Style="{StaticResource ListIconTextBlock}"
+                           VerticalAlignment="Center"/>
+            </Border>
+
+            <StackPanel Orientation="Vertical" Grid.Column="2"
+                                    VerticalAlignment="Center" MinHeight="39" Margin="0,1,0,0" >
+                <TextBlock Text="{x:Bind Header, Mode=OneWay}" TextTrimming="CharacterEllipsis" 
+                           TextWrapping="{x:Bind TextWrapping, Mode=OneWay}"/>
+                <TextBlock Text="{x:Bind Text, Mode=OneWay}" TextTrimming="CharacterEllipsis" 
+                           TextWrapping="NoWrap" Style="{StaticResource FadedBodyTextBlock}"/>
+            </StackPanel>
+        </Grid>
+    </ListViewItem>
+</UserControl>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView1">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="15dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+        <TextView
+            android:text="@string/details"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="15dp" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:inputType="textPostalAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/street_name_edit_text"
+                android:hint="@string/street_name"
+                android:layout_marginBottom="15dp"
+                local:MvxBind="Text StreetName; Visibility InvertedVisibility(IsExisting)" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:inputType="textMultiLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/description_edit_text"
+                android:hint="@string/description"
+                android:layout_marginBottom="15dp"
+                local:MvxBind="Text Details.Description" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rooms_edit_text"
+                android:hint="@string/rooms"
+                android:layout_marginBottom="15dp"
+                local:MvxBind="Text Details.Rooms" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/living_area_edit_text"
+                android:hint="@string/living_area"
+                android:layout_marginBottom="15dp"
+                local:MvxBind="Text Details.LivingArea" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lot_size_edit_text"
+                android:hint="@string/lot_size"
+                android:layout_marginBottom="15dp"
+                local:MvxBind="Text Details.LotSize" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/operating_costs_edit_text"
+                android:hint="@string/operating_costs"
+                android:layout_marginBottom="15dp"
+                local:MvxBind="Text Details.OperatingCosts" />
+        </android.support.design.widget.TextInputLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1"
+            android:weightSum="2"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+            <Button
+                android:text="Cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/button1"
+                android:layout_weight="1"
+                android:theme="@style/Theme.Light.Button"
+                style="@style/Widget.AppCompat.Button"
+                local:MvxBind="Click GoBackCommand" />
+            <Button
+                android:text="Save"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/save_details_button"
+                android:layout_weight="1"
+                android:theme="@style/Theme.Light.AccentButton"
+                style="@style/Widget.AppCompat.Button.Colored"
+                local:MvxBind="Click SaveDetailsCommand; Enabled IsValid" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
