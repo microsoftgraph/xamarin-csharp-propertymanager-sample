@@ -1,0 +1,1 @@
+# xamarin-csharp-propertymanager-sample
