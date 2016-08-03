@@ -1,8 +1,8 @@
-﻿using Foundation;
+﻿using CoreGraphics;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.iOS.Views;
-using XamarinNativePropertyManager.ViewModels;
 using UIKit;
+using XamarinNativePropertyManager.ViewModels;
 
 namespace XamarinNativePropertyManager.iOS.Views.Tabs
 {
@@ -20,19 +20,22 @@ namespace XamarinNativePropertyManager.iOS.Views.Tabs
 
 			// Set view title and prompt.
 			NavigationItem.Title = "Details";
-			NavigationItem.Prompt = viewModel.Group.DisplayName;
+		    if (viewModel != null)
+		    {
+		        NavigationItem.Prompt = viewModel.Group.DisplayName;
 
-			// Add left navigation bar item.
-			var leftNavigationButton = new UIBarButtonItem(UIBarButtonSystemItem.Cancel, (sender, e) =>
-															viewModel.GoBackCommand.Execute(null));
-			NavigationItem.LeftBarButtonItem = leftNavigationButton;
+		        // Add left navigation bar item.
+		        var leftNavigationButton = new UIBarButtonItem(UIBarButtonSystemItem.Cancel, (sender, e) =>
+		            viewModel.GoBackCommand.Execute(null));
+		        NavigationItem.LeftBarButtonItem = leftNavigationButton;
 
-			// Add right navigation bar item.
-			var rightNavigationButton = new UIBarButtonItem(UIBarButtonSystemItem.Edit, (sender, e) =>
-			                                                viewModel.EditDetailsCommand.Execute(null));
-			NavigationItem.RightBarButtonItem = rightNavigationButton;
+		        // Add right navigation bar item.
+		        var rightNavigationButton = new UIBarButtonItem(UIBarButtonSystemItem.Edit, (sender, e) =>
+		            viewModel.EditDetailsCommand.Execute(null));
+		        NavigationItem.RightBarButtonItem = rightNavigationButton;
+		    }
 
-			// Create and apply the binding set.
+		    // Create and apply the binding set.
 			var set = this.CreateBindingSet<DetailsTabView, GroupViewModel>();
 			set.Bind(DescriptionLabel).To(vm => vm.Details.Description);
 			set.Bind(RoomsLabel).To(vm => vm.Details.Rooms);
@@ -42,17 +45,11 @@ namespace XamarinNativePropertyManager.iOS.Views.Tabs
 			set.Apply();
 		}
 
-		public override void DidReceiveMemoryWarning()
-		{
-			base.DidReceiveMemoryWarning();
-			// Release any cached data, images, etc that aren't in use.
-		}
-
-		public override void ViewDidLayoutSubviews()
+	    public override void ViewDidLayoutSubviews()
 		{
 			base.ViewDidLayoutSubviews();
 			var frame = ContentView.Frame;
-			ScrollView.ContentSize = new CoreGraphics.CGSize(frame.Size.Width, frame.Size.Height + 49);
+			ScrollView.ContentSize = new CGSize(frame.Size.Width, frame.Size.Height + 49);
 		}
 	}
 }

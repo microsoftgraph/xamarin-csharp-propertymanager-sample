@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Android.App;
+using Android.Content;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using XamarinNativePropertyManager.Services;
 using MvvmCross.Platform;
 using MvvmCross.Platform.Droid.Platform;
-using static Android.Provider.Settings;
-using Android.Telephony;
-using Android.Content;
-using System.Linq;
+using XamarinNativePropertyManager.Services;
 
 namespace XamarinNativePropertyManager.Droid.Services
 {

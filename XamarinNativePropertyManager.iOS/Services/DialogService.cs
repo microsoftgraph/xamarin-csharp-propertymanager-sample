@@ -1,5 +1,4 @@
-﻿using System;
-using XamarinNativePropertyManager.Services;
+﻿using XamarinNativePropertyManager.Services;
 
 namespace XamarinNativePropertyManager.iOS.Services
 {

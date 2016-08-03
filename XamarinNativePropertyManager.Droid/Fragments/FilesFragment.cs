@@ -12,11 +12,6 @@ namespace XamarinNativePropertyManager.Droid.Fragments
     {
         private MvxListView _filesListView;
 
-        public override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-        }
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, 
             Bundle savedInstanceState)
         {
@@ -30,7 +25,10 @@ namespace XamarinNativePropertyManager.Droid.Fragments
 
             // Get the group view model.
             var viewModel = ViewModel as GroupViewModel;
-            viewModel.FilesChanged += OnFilesChanged;
+            if (viewModel != null)
+            {
+                viewModel.FilesChanged += OnFilesChanged;
+            }
 
             // Get the list view.
             _filesListView = (MvxListView)view.FindViewById(Resource.Id.files_list_view);

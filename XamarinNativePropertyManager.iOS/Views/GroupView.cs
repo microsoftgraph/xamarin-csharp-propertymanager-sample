@@ -4,13 +4,14 @@ using MvvmCross.iOS.Views;
 using XamarinNativePropertyManager.ViewModels;
 using UIKit;
 using MvvmCross.Platform.WeakSubscription;
+using XamarinNativePropertyManager.iOS.Extensions;
 using XamarinNativePropertyManager.iOS.Views.Tabs;
 
 namespace XamarinNativePropertyManager.iOS.Views
 {
 	public partial class GroupView : MvxTabBarViewController<GroupViewModel>
 	{
-		private bool _viewConstructed;
+		private readonly bool _viewConstructed;
 
 		public GroupView()
 		{
@@ -27,10 +28,10 @@ namespace XamarinNativePropertyManager.iOS.Views
 			// Hide the navigation bar.
 			this.HideNavigationBar();
 			ViewModel.OnResume();
-			base.ViewDidAppear(animated);
+			ViewDidAppear(animated);
 		}
 
-		public override void ViewDidLoad()
+		public override sealed void ViewDidLoad()
 		{
 			if (!_viewConstructed) 
 			{
@@ -40,7 +41,7 @@ namespace XamarinNativePropertyManager.iOS.Views
 			base.ViewDidLoad();
 
 			// Create and set tabs.
-			var viewControllers = new UIViewController[]
+			var viewControllers = new[]
 			{
 				CreateTabViewController<DetailsTabView>("Details", "DetailsTabBarIcon", 0),
 				CreateTabViewController<ConversationsTabView>("Conversations", "ConversationsTabBarIcon", 1),
@@ -66,26 +67,24 @@ namespace XamarinNativePropertyManager.iOS.Views
 		{
 			// Create view controller.
 			var viewController = Activator.CreateInstance(typeof(T)) as T;
-			viewController.Title = title;
-			viewController.TabBarItem = new UITabBarItem(title, UIImage.FromBundle(icon), index);
-			viewController.ViewModel = ViewModel;
+		    if (viewController != null)
+		    {
+		        viewController.Title = title;
+		        viewController.TabBarItem = new UITabBarItem(title, UIImage.FromBundle(icon), index);
+		        viewController.ViewModel = ViewModel;
 
-			// Create the navigation controller.
-			var navigationController = new UINavigationController();
+		        // Create the navigation controller.
+		        var navigationController = new UINavigationController();
 
-			//navigationController.NavigationItem.Title = Title;
-			navigationController.PushViewController(viewController, false);
+		        //navigationController.NavigationItem.Title = Title;
+		        navigationController.PushViewController(viewController, false);
 
-			// Set the navigation bar style.
-			ViewControllerExtensions.SetNavigationBarStyle(viewController);
+		        // Set the navigation bar style.
+		        viewController.SetNavigationBarStyle();
 
-			return navigationController;
-		}
-
-		public override void DidReceiveMemoryWarning()
-		{
-			base.DidReceiveMemoryWarning();
-			// Release any cached data, images, etc that aren't in use.
+		        return navigationController;
+		    }
+		    return null;
 		}
 	}
 }

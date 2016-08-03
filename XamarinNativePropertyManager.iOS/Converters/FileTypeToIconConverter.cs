@@ -4,7 +4,7 @@ using MvvmCross.Platform.Converters;
 using XamarinNativePropertyManager.Models;
 using UIKit;
 
-namespace XamarinNativePropertyManager.iOS
+namespace XamarinNativePropertyManager.iOS.Converters
 {
 	public class FileTypeToIconConverter : IMvxValueConverter
 	{

@@ -12,10 +12,12 @@ namespace XamarinNativePropertyManager.iOS.Services
 		{
 			// Create alert controller.
 			AlertController = UIAlertController.Create(title, message + "\n\n\n\n", UIAlertControllerStyle.Alert);
-			var activityIndicator = new UIActivityIndicatorView(UIActivityIndicatorViewStyle.WhiteLarge);
-			activityIndicator.Center = new CGPoint(130.5, 120);
-			activityIndicator.Color = UIColor.Black;
-			activityIndicator.StartAnimating();
+		    var activityIndicator = new UIActivityIndicatorView(UIActivityIndicatorViewStyle.WhiteLarge)
+		    {
+		        Center = new CGPoint(130.5, 120),
+		        Color = UIColor.Black
+		    };
+		    activityIndicator.StartAnimating();
 
 			// Add activity indicator.
 			AlertController.View.AddSubview(activityIndicator);

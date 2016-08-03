@@ -10,7 +10,7 @@ using System.CodeDom.Compiler;
 namespace XamarinNativePropertyManager.iOS.Views
 {
 	[Register ("GroupsView")]
-	partial class GroupsView
+	sealed partial class GroupsView
 	{
 		[Outlet]
 		UIKit.UISearchBar SearchBar { get; set; }

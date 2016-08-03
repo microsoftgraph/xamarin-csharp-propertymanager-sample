@@ -1,14 +1,14 @@
-﻿using System;
-using MvvmCross.Binding.BindingContext;
+﻿using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
 using MvvmCross.iOS.Views;
-using XamarinNativePropertyManager.ViewModels;
 using UIKit;
+using XamarinNativePropertyManager.iOS.Extensions;
 using XamarinNativePropertyManager.iOS.Views.Cells;
+using XamarinNativePropertyManager.ViewModels;
 
 namespace XamarinNativePropertyManager.iOS.Views
 {
-	public partial class GroupsView : MvxViewController<GroupsViewModel>
+	public sealed partial class GroupsView : MvxViewController<GroupsViewModel>
 	{
 		public GroupsView() : base("GroupsView", null)
 		{
@@ -57,12 +57,6 @@ namespace XamarinNativePropertyManager.iOS.Views
 			this.ShowNavigationBar(true);
 			ViewModel.OnResume();
 			base.ViewWillAppear(animated);
-		}
-
-		public override void DidReceiveMemoryWarning()
-		{
-			base.DidReceiveMemoryWarning();
-			// Release any cached data, images, etc that aren't in use.
 		}
 	}
 }

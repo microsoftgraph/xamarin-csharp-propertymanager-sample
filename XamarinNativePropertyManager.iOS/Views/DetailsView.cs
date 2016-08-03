@@ -3,6 +3,7 @@ using MvvmCross.Binding.BindingContext;
 using MvvmCross.iOS.Views;
 using XamarinNativePropertyManager.ViewModels;
 using UIKit;
+using XamarinNativePropertyManager.iOS.Extensions;
 
 namespace XamarinNativePropertyManager.iOS.Views
 {
@@ -44,11 +45,11 @@ namespace XamarinNativePropertyManager.iOS.Views
 			};
 
 			// Register event handlers to trigger validation.
-			NSNotificationCenter.DefaultCenter.AddObserver(UITextField.TextFieldTextDidChangeNotification, (obj) =>
+			NSNotificationCenter.DefaultCenter.AddObserver(UITextField.TextFieldTextDidChangeNotification, obj =>
 			{
 				ViewModel.Validate();
 			});
-			NSNotificationCenter.DefaultCenter.AddObserver(UITextView.TextDidChangeNotification, (obj) =>
+			NSNotificationCenter.DefaultCenter.AddObserver(UITextView.TextDidChangeNotification, obj =>
 			{
 				ViewModel.Validate();
 			});
@@ -60,11 +61,11 @@ namespace XamarinNativePropertyManager.iOS.Views
 			}
 
 			// Register event handlers to trigger focus flow.
-			StreetNameTextField.ShouldReturn += (textField) => DescriptionTextView.BecomeFirstResponder();
-			RoomsTextField.ShouldReturn += (textField) => LivingAreaTextField.BecomeFirstResponder();
-			LivingAreaTextField.ShouldReturn += (textField) => LotSizeTextField.BecomeFirstResponder();
-			LotSizeTextField.ShouldReturn += (textField) => OperatingCostsTextField.BecomeFirstResponder();
-			OperatingCostsTextField.ShouldReturn += (textField) => OperatingCostsTextField.ResignFirstResponder();
+			StreetNameTextField.ShouldReturn += textField => DescriptionTextView.BecomeFirstResponder();
+			RoomsTextField.ShouldReturn += textField => LivingAreaTextField.BecomeFirstResponder();
+			LivingAreaTextField.ShouldReturn += textField => LotSizeTextField.BecomeFirstResponder();
+			LotSizeTextField.ShouldReturn += textField => OperatingCostsTextField.BecomeFirstResponder();
+			OperatingCostsTextField.ShouldReturn += textField => OperatingCostsTextField.ResignFirstResponder();
 
 			// Create and apply the binding set.
 			var set = this.CreateBindingSet<DetailsView, DetailsViewModel>();
@@ -86,12 +87,6 @@ namespace XamarinNativePropertyManager.iOS.Views
 			this.ShowNavigationBar();
 			ViewModel.OnResume();
 			base.ViewWillAppear(animated);
-		}
-
-		public override void DidReceiveMemoryWarning()
-		{
-			base.DidReceiveMemoryWarning();
-			// Release any cached data, images, etc that aren't in use.
 		}
 	}
 }

@@ -31,14 +31,13 @@ namespace XamarinNativePropertyManager.iOS.Views.Tabs
 
 		protected override UITableViewCell GetOrCreateCellFor(UITableView tableView, NSIndexPath indexPath, object item)
 		{
-			var key = (item as ConversationModel).IsOwnedByUser 
+		    var conversationModel = item as ConversationModel;
+		    var key = conversationModel != null && conversationModel.IsOwnedByUser 
 			                                     ? ConversationsTableRightViewCell.Key 
 			                                     : ConversationsTableLeftViewCell.Key;
-			if (_iosVersion6Checker.IsVersionOrHigher)
-			{
-				return tableView.DequeueReusableCell(key, indexPath);
-			}
-			return tableView.DequeueReusableCell(key);
+			return _iosVersion6Checker.IsVersionOrHigher 
+                ? tableView.DequeueReusableCell(key, indexPath) 
+                : tableView.DequeueReusableCell(key);
 		}
 
 		public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
@@ -48,22 +47,26 @@ namespace XamarinNativePropertyManager.iOS.Views.Tabs
 
 			// Get the cell and set values.
 			var cell = tableView.DequeueReusableCell(ConversationsTableLeftViewCell.Key) as ConversationsTableLeftViewCell;
-			cell.SetValues(conversation.Preview, conversation.UniqueSenders[0]);
+		    if (cell == null)
+		    {
+                return 0;
+            }
+		    cell.SetValues(conversation.Preview, conversation.UniqueSenders[0]);
 
-			// Update the constraints.
-			cell.SetNeedsUpdateConstraints();
-			cell.UpdateConstraintsIfNeeded();
+		    // Update the constraints.
+		    cell.SetNeedsUpdateConstraints();
+		    cell.UpdateConstraintsIfNeeded();
 
-			cell.Bounds = new RectangleF(0, 0, (float)TableView.Bounds.Width, (float)TableView.Bounds.Height);
+		    cell.Bounds = new RectangleF(0, 0, (float)TableView.Bounds.Width, (float)TableView.Bounds.Height);
 
-			// Update the layout.
-			cell.SetNeedsLayout();
-			cell.LayoutIfNeeded();
-			cell.LayoutSubviews();
+		    // Update the layout.
+		    cell.SetNeedsLayout();
+		    cell.LayoutIfNeeded();
+		    cell.LayoutSubviews();
 
-			// Get the height.
-			var height = cell.ContentView.SystemLayoutSizeFittingSize(UIView.UILayoutFittingCompressedSize).Height;
-			return height + 1;
+		    // Get the height.
+		    var height = cell.ContentView.SystemLayoutSizeFittingSize(UIView.UILayoutFittingCompressedSize).Height;
+		    return height + 1;
 		}
 	}
 }

@@ -1,33 +1,26 @@
+using System;
+using System.Collections.Generic;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Platform;
 using MvvmCross.iOS.Views.Presenters;
 using MvvmCross.Platform;
 using MvvmCross.Platform.Platform;
-using UIKit;
-using XamarinNativePropertyManager.ViewModels;
-using XamarinNativePropertyManager.Services;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System;
 using MvvmCross.Plugins.Visibility;
+using UIKit;
+using XamarinNativePropertyManager.iOS.Converters;
 using XamarinNativePropertyManager.iOS.Services;
+using XamarinNativePropertyManager.Services;
 
 namespace XamarinNativePropertyManager.iOS
 {
     public class Setup : MvxIosSetup
     {
-		protected override List<Type> ValueConverterHolders
+		protected override List<Type> ValueConverterHolders => new List<Type>
 		{
-			get
-			{
-				return new List<Type>
-				{
-					typeof(MvxVisibilityValueConverter),
-					typeof(MvxInvertedVisibilityValueConverter),
-					typeof(FileTypeToIconConverter)
-				};
-			}
-		}
+		    typeof(MvxVisibilityValueConverter),
+		    typeof(MvxInvertedVisibilityValueConverter),
+		    typeof(FileTypeToIconConverter)
+		};
 
         public Setup(MvxApplicationDelegate applicationDelegate, UIWindow window)
             : base(applicationDelegate, window)

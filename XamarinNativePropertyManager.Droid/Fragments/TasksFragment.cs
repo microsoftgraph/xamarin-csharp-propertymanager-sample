@@ -12,11 +12,6 @@ namespace XamarinNativePropertyManager.Droid.Fragments
     {
         private MvxListView _tasksListView;
 
-        public override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-        }
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, 
             Bundle savedInstanceState)
         {
@@ -30,7 +25,10 @@ namespace XamarinNativePropertyManager.Droid.Fragments
 
             // Get the group view model.
             var viewModel = ViewModel as GroupViewModel;
-            viewModel.TasksChanged += OnTasksChanged;
+            if (viewModel != null)
+            {
+                viewModel.TasksChanged += OnTasksChanged;
+            }
 
             // Get the list view.
             _tasksListView = (MvxListView)view.FindViewById(Resource.Id.tasks_list_view);

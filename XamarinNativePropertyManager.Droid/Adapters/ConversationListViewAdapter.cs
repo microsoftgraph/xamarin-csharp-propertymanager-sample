@@ -8,13 +8,7 @@ namespace XamarinNativePropertyManager.Droid.Adapters
 {
     public class ConversationListViewAdapter : MvxAdapter
     {
-        public override int ViewTypeCount
-        {
-            get
-            {
-                return 2;
-            }
-        }
+        public override int ViewTypeCount => 2;
 
         public ConversationListViewAdapter(Context context,
             IMvxAndroidBindingContext bindingContext)

@@ -17,17 +17,19 @@ namespace XamarinNativePropertyManager.iOS.Services
 			var taskCompletionSource = new TaskCompletionSource<PickedFileModel>();
 
 			// Create the image picker.
-			var imagePicker = new UIImagePickerController();
-			imagePicker.SourceType = UIImagePickerControllerSourceType.PhotoLibrary;
-			imagePicker.MediaTypes = UIImagePickerController.AvailableMediaTypes(UIImagePickerControllerSourceType.PhotoLibrary);
+		    var imagePicker = new UIImagePickerController
+		    {
+		        SourceType = UIImagePickerControllerSourceType.PhotoLibrary,
+		        MediaTypes = UIImagePickerController.AvailableMediaTypes(UIImagePickerControllerSourceType.PhotoLibrary)
+		    };
 
-			// Register event handlers.
+		    // Register event handlers.
 			imagePicker.FinishedPickingMedia += (sender, e) =>
 			{
 				// Extract the file name.
 				var referenceUrl = e.Info.Values[1] as NSUrl;
 				var assetsLibrary = new AssetsLibrary.ALAssetsLibrary();
-				assetsLibrary.AssetForUrl(referenceUrl, (obj) =>
+				assetsLibrary.AssetForUrl(referenceUrl, obj =>
 				{
 					// Get the file stream.
 					var stream = (e.EditedImage ?? e.OriginalImage).AsPNG().AsStream();
@@ -41,7 +43,7 @@ namespace XamarinNativePropertyManager.iOS.Services
 
 					// Dismiss the image picker.
 					imagePicker.DismissViewController(true, null);
-				}, (obj) =>
+				}, obj =>
 				{
 					taskCompletionSource.SetResult(null);
 

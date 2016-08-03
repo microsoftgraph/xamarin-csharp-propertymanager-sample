@@ -2,7 +2,7 @@
 using MvvmCross.iOS.Views;
 using UIKit;
 
-namespace XamarinNativePropertyManager.iOS
+namespace XamarinNativePropertyManager.iOS.Extensions
 {
 	public static class ViewControllerExtensions
 	{

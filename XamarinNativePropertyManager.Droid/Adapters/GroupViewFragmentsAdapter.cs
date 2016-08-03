@@ -9,19 +9,16 @@ namespace XamarinNativePropertyManager.Droid.Adapters
 {
     public class GroupViewFragmentsAdapter : MvxCachingFragmentPagerAdapter
     {
-        private readonly GroupView _groupView;
+        public GroupView View { get; }
         private readonly FragmentInfo[] _fragmentInfos;
 
-        public override int Count
-        {
-            get { return _fragmentInfos.Length; }
-        }
+        public override int Count => _fragmentInfos.Length;
 
         public GroupViewFragmentsAdapter(GroupView groupView)
             : base(groupView.SupportFragmentManager)
         {
-            _groupView = groupView;
-            _fragmentInfos = new FragmentInfo[]
+            View = groupView;
+            _fragmentInfos = new[]
             {
                 new FragmentInfo("Details", new DetailsFragment()),
                 new FragmentInfo("Conversations", new ConversationsFragment()),

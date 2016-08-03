@@ -1,8 +1,9 @@
 ﻿using MvvmCross.iOS.Views;
 using XamarinNativePropertyManager.ViewModels;
 using MvvmCross.Binding.BindingContext;
+using XamarinNativePropertyManager.iOS.Extensions;
 
-namespace XamarinNativePropertyManager.iOS
+namespace XamarinNativePropertyManager.iOS.Views
 {
 	public partial class LoginView : MvxViewController<LoginViewModel>
 	{
@@ -35,17 +36,6 @@ namespace XamarinNativePropertyManager.iOS
 			this.HideNavigationBar(true);
 			ViewModel.OnResume();
 			base.ViewWillAppear(animated);
-		}
-
-		public override void ViewDidAppear(bool animated)
-		{
-			base.ViewDidAppear(animated);
-		}
-
-		public override void DidReceiveMemoryWarning()
-		{
-			base.DidReceiveMemoryWarning();
-			// Release any cached data, images, etc that aren't in use.
 		}
 	}
 }

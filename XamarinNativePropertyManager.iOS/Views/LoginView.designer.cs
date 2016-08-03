@@ -7,7 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace XamarinNativePropertyManager.iOS
+namespace XamarinNativePropertyManager.iOS.Views
 {
 	[Register ("LoginView")]
 	partial class LoginView

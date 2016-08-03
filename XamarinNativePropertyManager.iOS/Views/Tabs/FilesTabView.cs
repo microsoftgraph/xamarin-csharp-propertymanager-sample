@@ -1,11 +1,9 @@
-﻿using System;
-using CoreGraphics;
-using MvvmCross.Binding.BindingContext;
+﻿using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
 using MvvmCross.iOS.Views;
-using XamarinNativePropertyManager.ViewModels;
 using UIKit;
 using XamarinNativePropertyManager.iOS.Views.Cells;
+using XamarinNativePropertyManager.ViewModels;
 
 namespace XamarinNativePropertyManager.iOS.Views.Tabs
 {
@@ -23,19 +21,22 @@ namespace XamarinNativePropertyManager.iOS.Views.Tabs
 
 			// Set view title and prompt.
 			NavigationItem.Title = "Files";
-			NavigationItem.Prompt = viewModel.Group.DisplayName;
+		    if (viewModel != null)
+		    {
+		        NavigationItem.Prompt = viewModel.Group.DisplayName;
 
-			// Add left navigation bar item.
-			var leftNavigationButton = new UIBarButtonItem(UIBarButtonSystemItem.Cancel, (sender, e) =>
-															viewModel.GoBackCommand.Execute(null));
-			NavigationItem.LeftBarButtonItem = leftNavigationButton;
+		        // Add left navigation bar item.
+		        var leftNavigationButton = new UIBarButtonItem(UIBarButtonSystemItem.Cancel, (sender, e) =>
+		            viewModel.GoBackCommand.Execute(null));
+		        NavigationItem.LeftBarButtonItem = leftNavigationButton;
 
-			// Add right navigation bar item.
-			var rightNavigationButton = new UIBarButtonItem(UIBarButtonSystemItem.Add, (sender, e) =>
-			                                                viewModel.AddFileCommand.Execute(null));
-			NavigationItem.RightBarButtonItem = rightNavigationButton;
+		        // Add right navigation bar item.
+		        var rightNavigationButton = new UIBarButtonItem(UIBarButtonSystemItem.Add, (sender, e) =>
+		            viewModel.AddFileCommand.Execute(null));
+		        NavigationItem.RightBarButtonItem = rightNavigationButton;
+		    }
 
-			// Create the table view source.
+		    // Create the table view source.
 			var source = new MvxSimpleTableViewSource(TableView, FilesTableViewCell.Key, FilesTableViewCell.Key);
 
 			// Create and apply the binding set.
@@ -48,12 +49,6 @@ namespace XamarinNativePropertyManager.iOS.Views.Tabs
 			TableView.Source = source;
 			TableView.RowHeight = 60;
 			TableView.ReloadData();
-		}
-
-		public override void DidReceiveMemoryWarning()
-		{
-			base.DidReceiveMemoryWarning();
-			// Release any cached data, images, etc that aren't in use.
 		}
 	}
 }

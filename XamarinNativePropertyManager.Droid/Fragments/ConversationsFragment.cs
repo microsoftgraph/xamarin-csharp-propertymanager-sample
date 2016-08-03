@@ -13,11 +13,6 @@ namespace XamarinNativePropertyManager.Droid.Fragments
     {
         private MvxListView _conversationsListView;
 
-        public override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-        }
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, 
             Bundle savedInstanceState)
         {
@@ -31,7 +26,10 @@ namespace XamarinNativePropertyManager.Droid.Fragments
 
             // Get the group view model.
             var viewModel = ViewModel as GroupViewModel;
-            viewModel.ConversationsChanged += OnConversationsChanged;
+            if (viewModel != null)
+            {
+                viewModel.ConversationsChanged += OnConversationsChanged;
+            }
 
             // Get the list view and configure the adapter.
             _conversationsListView = (MvxListView)view.FindViewById(Resource.Id.conversation_list_view);

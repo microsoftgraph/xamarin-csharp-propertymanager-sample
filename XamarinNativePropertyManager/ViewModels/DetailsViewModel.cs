@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
-using Newtonsoft.Json.Linq;
 using XamarinNativePropertyManager.Models;
 using XamarinNativePropertyManager.Services;
 

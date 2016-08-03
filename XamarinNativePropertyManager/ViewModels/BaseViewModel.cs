@@ -1,5 +1,4 @@
 ﻿using MvvmCross.Core.ViewModels;
-using XamarinNativePropertyManager.Services;
 using System.Windows.Input;
 
 namespace XamarinNativePropertyManager.ViewModels

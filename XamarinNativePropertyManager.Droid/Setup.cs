@@ -14,18 +14,12 @@ namespace XamarinNativePropertyManager.Droid
 {
     public class Setup : MvxAndroidSetup
     {
-        protected override IEnumerable<Type> ValueConverterHolders
+        protected override IEnumerable<Type> ValueConverterHolders => new List<Type>
         {
-            get
-            {
-                return new List<Type>
-                {
-                    typeof(MvxVisibilityValueConverter),
-                    typeof(MvxInvertedVisibilityValueConverter),
-                    typeof(FileTypeToIconConverter),
-                };
-            }
-        }
+            typeof(MvxVisibilityValueConverter),
+            typeof(MvxInvertedVisibilityValueConverter),
+            typeof(FileTypeToIconConverter),
+        };
 
         public Setup(Context applicationContext) : base(applicationContext)
         {
