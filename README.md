@@ -46,25 +46,29 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 <a name="register"></a>
 ##Register and configure the app
 
-You need to register your app in Azure AD.
+The first thing you need to do is to register your app in Azure AD.
 
 1. Sign in with an administrative user of your Office 365 tenant at the [Azure Management Portal](https://manage.windowsazure.com/).
 2. Select **Active Directory**.  
 ![Screenshots of the Azure AD tab icon.](/Images/AAD.png "Azure AD tab icon.")  
-3. Select your Azure AD tenant in the **Directory** tab.
+3. Select your Azure AD tenant in the **Directory** tab.  
+![Screenshots of the Azure AD tab icon.](/Images/SelectTenant.png "Azure AD tab icon.")  
 4. Click on **Applications** in the tab menu.
-5. Click on the **Add** button at the bottom.
+5. Click on the **Add** button at the bottom.  
+![Screenshots of the Azure AD tab icon.](/Images/AddApp.png "Azure AD tab icon.")  
 6. Choose **Add an application my organization is developing** in the dialog that shows up.
 7. Name your application and select **Native Client Application**.
 8. Enter a **Redirect Uri**. You can use anything for this, for example: "https://propertymanagerapp".
 9. When the application has been created, click on the **Configure** tab in the application page.
 10. Scroll down to the bottom to the **Permissions to other applications** section and click on the **Add application** button.
-11. Show **Microsoft Apps** and add the **Microsoft Graph**.
+11. Show **Microsoft Apps** and add the **Microsoft Graph**.  
+![Screenshots of the Azure AD tab icon.](/Images/AddMSGraph.png "Azure AD tab icon.")  
 12. Save your changes by clicking the check button at the bottom.
 13. Click on **Delegated permissions** and pick the following permissions:
     1.  Send mail
     2.  dfg
-3.  Save your configuration by clicking the **Save** button at the bottom.
+3.  Save your configuration by clicking the **Save** button at the bottom.  
+![Screenshots of the Azure AD tab icon.](/Images/SaveApp.png "Azure AD tab icon.")  
 
 <a name="build"></a>
 ## Build and debug ##
