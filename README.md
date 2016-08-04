@@ -19,7 +19,8 @@ The purpose of this sample is to demonstrate the ability to create platform user
 
 The samples uses the [Active Directory Authentication Library](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication and the [MvvmCross ](https://mvvmcross.com/) library to bring the [MVVM pattern](https://msdn.microsoft.com/en-us/library/hh848246.aspx) across platforms with Xamarin.
 
-    ![Screenshots of the sample running on Android, iOS and UWP project.](/images/PM_OSes.png "Sample running on Android, iOS and UWP")
+
+    ![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP")
 
 ## Project ##
 Project | Author(s)
@@ -97,7 +98,8 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 
 After launching the app, click the **Sign in** button to sign in to your organizational account. After you authenticate, the app displays all the properties in your organization. Create a new one by filling in the details and the app will provision a new Office 365 Group for this property. At this point you will be able to type messages to the group conversation, add files and tasks.
 
-    ![Screenshots of the sample running on Android, iOS and UWP project.](/images/PM_OSes.png "Sample running on Android, iOS and UWP")
+
+    ![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP")
 
 You will also be able to update the details of the property and create new ones. Explore the Office 365 Groups in your browser to find all of the data used within the app. The property details are stored in an Excel workbook named **Data.xlsx**, located in the **Property Managers** group. 
 
