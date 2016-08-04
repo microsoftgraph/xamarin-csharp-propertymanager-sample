@@ -13,14 +13,13 @@
 * [Additional resources](#additional-resources)
 
 <a name="introduction"></a>
-This sample project demonstrates how to use the Microsoft Graph as the only back-end component for a complete property management solution. The samples covers features such as property details, conversations, files and tasks in a Xamarin Native app. Because the sample targets the beta branch of the Microsoft Graph, network calls are being made with the built in HTTP stack towards the Microsoft Graph instead of using the [Microsoft Graph .NET Client SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet),
+This sample project demonstrates how to use the Microsoft Graph as the only back-end component for a complete property management solution. The samples covers features such as property details, conversations, files and tasks in a Xamarin Native app. As the sample targets the beta branch of the Microsoft Graph, network calls are being made with the built in HTTP stack towards the Microsoft Graph instead of using the [Microsoft Graph .NET Client SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet).
 
 The purpose of this sample is to demonstrate the ability to create platform user interfaces and experiences, while sharing code across platforms and supercharging the solution with the Microsoft Graph. It heavily leverages Office 365 Groups in order to organize data into properties.
 
-The samples uses the [Active Directory Authentication Library](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication and the [MvvmCross ](https://mvvmcross.com/) library to bring the [MVVM](https://msdn.microsoft.com/en-us/library/hh848246.aspx) pattern across platforms with Xamarin.
+The samples uses the [Active Directory Authentication Library](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication and the [MvvmCross ](https://mvvmcross.com/) library to bring the [MVVM pattern](https://msdn.microsoft.com/en-us/library/hh848246.aspx) across platforms with Xamarin.
 
-
-
+    ![Screenshots of the sample running on Android, iOS and UWP project.](/images/PM_OSes.png "Sample running on Android, iOS and UWP")
 
 ## Project ##
 Project | Author(s)
@@ -40,7 +39,9 @@ This sample requires the following:
   * [Visual Studio 2015](https://www.visualstudio.com/downloads) 
   * [Xamarin for Visual Studio](https://www.xamarin.com/visual-studio)
   * Windows 10 ([development mode enabled](https://msdn.microsoft.com/library/windows/apps/xaml/dn706236.aspx))
-  * Either an [Office 365 for business account](https://msdn.microsoft.com/office/office365/howto/setup-development-environment#bk_Office365Account)
+  * An [Office 365 account](https://msdn.microsoft.com/office/office365/howto/setup-development-environment#bk_Office365Account)
+
+If you are building for Office 365 and you're missing an Office 365 tenant - get yourself a developer account at: <http://dev.office.com/devprogram>
 
 If you want to run the iOS project in this sample, you'll need the following:
 
@@ -74,7 +75,7 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 
 **Note:** If you see any errors while installing packages during step 2, make sure the local path where you placed the solution is not too long/deep. Moving the solution closer to the root of your drive resolves this issue.
 
-1. Open the App.cs file inside the **XamarinFormsMeetingManager (Portable)** project of the solution.
+1. Open the Constants.cs file inside the **XamarinNativePropertyManager** project of the solution.
 
     ![Screenshot of the Solution Explorer pane in Visual Studio, with App.cs file selected in the XamarinFormsMeetingManager project](/readme-images/Appdotcs.png "Open App.cs file in XamarinFormsMeetingManager project")
 
@@ -94,22 +95,18 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 <a name="run"></a>
 ## Run the sample
 
-After launching the app, click the **Connect** button to log in to your Microsoft account. After you authenticate, the app displays a date picker that defaults to the current date and a list of all meetings on the current user's calendar for that date. Use the date picker to view, edit, and create meetings on other dates.
+After launching the app, click the **Sign in** button to sign in to your organizational account. After you authenticate, the app displays all the properties in your organization. Create a new one by filling in the details and the app will provision a new Office 365 Group for this property. At this point you will be able to type messages to the group conversation, add files and tasks.
 
-| UWP | Android | iOS |
-| --- | ------- | ----|
-| <img src="/readme-images/UWPVersion.png" alt="Connect sample on UWP" width="100%" /> | <img src="/readme-images/DroidVersion.png" alt="Connect sample on Android" width="100%" /> | <img src="/readme-images/iOSVersion.png" alt="Connect sample on iOS" width="100%" /> |
+    ![Screenshots of the sample running on Android, iOS and UWP project.](/images/PM_OSes.png "Sample running on Android, iOS and UWP")
 
-After you select a date, you can either view meeting details or create a new meeting for the selected date.
-
-Select a meeting from the list to view its details. From the meeting details page you can forward the meeting to others, send a "reply all" message to all meeting participants, send a "running late" message, or edit the meeting details. The edit meeting page contains an option for adding a recurrence pattern to the meeting.
-
-Use the **Cancel** button to navigate from the edit and create meeting pages if you don't want to save your changes.
+You will also be able to update the details of the property and create new ones. Explore the Office 365 Groups in your browser to find all of the data used within the app. The property details are stored in an Excel workbook named **Data.xlsx**, located in the **Property Managers** group. 
 
 <a name="#how-the-sample-affects-your-tenant-data"></a>
 ##How the sample affects your account data
 
-This sample runs commands that create, read, update, or delete data. It creates and leaves data artifacts (meetings and messages) in your account as part of its operation.
+When this sample is started for the first time (in the Office 365 tenant) an Office 365 Group named **Property Managers** is created. In this group, a **Data.xlsx** file is stored which hosts all of the details for the different properties.
+
+For each property that is created within the app, a new Office 365 group is provisioned. In each group the files, conversations and tasks features are used. Tasks are the only thing that can be deleted (completed) from within the app. The app does not provide an ability to delete conversations posts or files. 
 
 <a name="contributing"></a>
 ## Contributing ##
