@@ -135,7 +135,7 @@ For each property that is created within the app, a new Office 365 group is prov
 
 **UWP**
 
-![Screenshots of the sample running on UWP.](/Images/PM_UWP.png "Sample running on UWP.")
+![Screenshots of the sample running on UWP.](/Images/PM_UWP1.png "Sample running on UWP.")
 
 <a name="contributing"></a>
 ## Contributing ##
