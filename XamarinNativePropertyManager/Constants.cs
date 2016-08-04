@@ -6,13 +6,13 @@ namespace XamarinNativePropertyManager
 {
     public static class Constants
     {
-		public static string Authority => "https://login.microsoftonline.com/simonj.onmicrosoft.com";
+		public static string Authority => "https://login.microsoftonline.com/[TENANT_ID_OR_NAME]";
 
 		public static string GraphResource => "https://graph.microsoft.com/";
 
-		public static string ClientId => "fdeaed4c-1bf1-4431-9033-3ef270889eb5";
+		public static string ClientId => "[CLIENT_ID]";
 
-		public static Uri RedirectUri => new Uri("https://propertymanager");
+		public static Uri RedirectUri => new Uri("[REDIRECT_URI]");
 
         public static string AppGroupDisplayName => "Property Managers";
 
