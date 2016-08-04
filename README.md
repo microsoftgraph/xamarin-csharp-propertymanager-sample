@@ -61,9 +61,9 @@ The first thing you need to do is to register your app in Azure AD.
 8. Enter a **Redirect Uri**. You can use anything for this, for example "https://propertymanagerapp".
 9. When the application has been created, click on the **Configure** tab in the application page.
 10. Scroll down to the bottom to the **Permissions to other applications** section and click on the **Add application** button.
-11. Show **Microsoft Apps** and add the **Microsoft Graph**.  
+11. Show **Microsoft Apps** and add the **Microsoft Graph**.
+12. Save your changes by clicking the check button at the bottom.  
 ![Screenshots of the Microsoft Graph app.](/Images/AddMSGraph.png "Microsoft Graph app.")  
-12. Save your changes by clicking the check button at the bottom.
 13. Click on **Delegated permissions** and pick the following permissions:
     1.  Sign users in
     2.  Read and write all groups
@@ -79,14 +79,17 @@ The first thing you need to do is to register your app in Azure AD.
 
 **Note:** If you see any errors while installing packages during step 2, make sure the local path where you placed the solution is not too long/deep. Moving the solution closer to the root of your drive resolves this issue.
 
-1. Open the Constants.cs file inside the **XamarinNativePropertyManager** project of the solution.  
-![Screenshots of the Azure AD tab icon.](/Images/Constants.png "Azure AD tab icon.") 
+1. Open the Constants.cs file inside the **XamarinNativePropertyManager (Portable)** project of the solution.  
+![Screenshots of the Constants.cs file](/Images/Constants.png "Constants.cs") 
 
-2. After you've loaded the solution in Visual Studio, configure the sample to use the client id that you registered by making this the value of the **ClientId** variable in the App.cs file.
+2. After you've loaded the solution in Visual Studio, configure the sample to use your Azure AD tenant by replacing the **[TENANT_ID_OR_NAME]** value in the **Authority** property in the **Constants.cs** file.  
+![Screenshots of the Authority property in the Constants.cs file](/Images/TenantId.png "Authority property") 
 
+3. Configure the sample to use your Azure AD application Client Id by replacing the **[CLIENT_ID]** value in the **ClientId** property in the **Constants.cs** file.  
+![Screenshots of the ClientId property in the Constants.cs file](/Images/ClientId.png "ClientId property") 
 
-    ![Screenshot of the ClientId variable in the App.cs file, currently set to an empty string.](/readme-images/appId.png "Client ID value in App.cs file")
-
+3. Configure the sample to use your Azure AD application Redirect Uri by replacing the **[REDIRECT_URI]** value in the **RedirectUri** property in the **Constants.cs** file.  
+![Screenshots of the RedirectUri property in the Constants.cs file](/Images/RedirectUri.png "RedirectUri property") 
 
 3. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project. 
 
