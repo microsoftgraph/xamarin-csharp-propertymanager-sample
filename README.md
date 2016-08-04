@@ -118,17 +118,22 @@ After launching the app, click the **Sign in** button to sign in to your organiz
 
 You will also be able to update the details of the property and create new ones. Explore the Office 365 groups in your browser to find all of the data used within the app. The property details are stored in an Excel workbook named **Data.xlsx**, located in the **Property Managers** group. 
 
+| Screenshots        |
+| ------------- |
+| **Android**       |
+| <img src="/Images/PM_Android.png" alt="Sample running on Android." width="100%" /> |
+| **iOS**      |
+| <img src="/Images/PM_iOS.png" alt="Sample running on Android." width="100%" /> |
+| **UWP** |
+| <img src="/Images/PM_UWP1.png" alt="Sample running on Android." width="100%" /> |
+
+
 <a name="#how-the-sample-affects-your-tenant-data"></a>
 ##How the sample affects your account data
 
 When this sample is started for the first time (in the Office 365 tenant) an Office 365 group named **Property Managers** is created. In this group, a **Data.xlsx** file is stored which hosts all of the details for the different properties.
 
 For each property that is created within the app, a new Office 365 group is provisioned. In each group the files, conversations and tasks resources are used by the app. Tasks are the only thing that can be deleted (completed) from within the app. The app does not provide an ability to delete conversation posts or files. 
-
-| Android | iOS | UWP |
-| --- | ------- | ----|
-| <img src="/Images/PM_Android.png" alt="Sample running on Android." width="100%" /> | <img src="/Images/PM_iOS.png" alt="Sample running on iOS." width="100%" /> | <img src="/Images/PM_UWP1.png" alt="Sample running on UWP." width="100%" /> |
-
 
 <a name="contributing"></a>
 ## Contributing ##
