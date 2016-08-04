@@ -21,6 +21,16 @@ The samples uses the [Active Directory Authentication Library](https://www.nuget
 
 ![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP.")
 
+### Project ###
+Project | Author(s)
+---------|----------
+XamarinNativePropertyManager | [Simon Jäger](http://simonjaeger.com/) (**Microsoft**)
+
+### Version history ###
+Version  | Date | Comments
+---------| -----| --------
+1.0  | August 4th 2016 | Initial release
+
 <a name="prerequisites"></a>
 ## Prerequisites ##
 
@@ -92,7 +102,7 @@ The first thing you need to do is to register your app in Azure AD.
 ![Screenshots of the RedirectUri property in the Constants.cs file.](/Images/RedirectUri.png "RedirectUri property.") 
 
 3. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project.  
-![Screenshot of the Visual Studio toolbar, with UWP selected as the start-up project.](/Images/Targets.png "Select start-up project.") 
+![Screenshot of the Visual Studio toolbar, with UWP selected as the start-up project.](/Images/Projects.png "Select start-up project.") 
 
 4. Press F5 to build and debug. Run the solution and sign in with either your personal or work or school account.
     > **Note** You might have to open the Build Configuration Manager to make sure that the Build and Deploy steps are selected for the UWP project.
