@@ -19,7 +19,9 @@ The purpose of this sample is to demonstrate the ability to create platform user
 
 The samples uses the [Active Directory Authentication Library](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication and the [MvvmCross ](https://mvvmcross.com/) library to bring the [MVVM pattern](https://msdn.microsoft.com/en-us/library/hh848246.aspx) across platforms with Xamarin.
 
-## Project ##
+![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP.")  
+
+### Project ###
 Project | Author(s)
 ---------|----------
 XamarinNativePropertyManager | [Simon Jäger](http://simonjaeger.com/) (**Microsoft**)
@@ -28,8 +30,6 @@ XamarinNativePropertyManager | [Simon Jäger](http://simonjaeger.com/) (**Micros
 Version  | Date | Comments
 ---------| -----| --------
 1.0  | August 4th 2016 | Initial release
-
-![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP.")
 
 <a name="prerequisites"></a>
 ## Prerequisites ##
