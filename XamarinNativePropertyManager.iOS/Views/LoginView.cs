@@ -1,4 +1,9 @@
-﻿using MvvmCross.iOS.Views;
+﻿/*
+ *  Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
+ *  See LICENSE in the source repository root for complete license information.
+ */
+
+using MvvmCross.iOS.Views;
 using XamarinNativePropertyManager.ViewModels;
 using MvvmCross.Binding.BindingContext;
 using XamarinNativePropertyManager.iOS.Extensions;

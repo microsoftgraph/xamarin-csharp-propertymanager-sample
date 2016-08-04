@@ -1,4 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿/*
+ *  Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
+ *  See LICENSE in the source repository root for complete license information.
+ */
+
+using System.Threading.Tasks;
 using MvvmCross.iOS.Views;
 using UIKit;
 
@@ -51,11 +56,11 @@ namespace XamarinNativePropertyManager.iOS.Extensions
 			var taskCompletionSource = new TaskCompletionSource<string>();
 
 			// Create the alert controller.
-			UIAlertController alertController = UIAlertController.Create(title, message, UIAlertControllerStyle.Alert);
+			var alertController = UIAlertController.Create(title, message, UIAlertControllerStyle.Alert);
 			alertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, 
-			                                               (obj) => taskCompletionSource.SetResult(alertController.TextFields[0].Text)));
+			                                               obj => taskCompletionSource.SetResult(alertController.TextFields[0].Text)));
 			alertController.AddAction(UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, 
-			                                               (obj) => taskCompletionSource.SetResult(null)));
+			                                               obj => taskCompletionSource.SetResult(null)));
 
 			// Add the text field.
 			alertController.AddTextField((obj) =>
