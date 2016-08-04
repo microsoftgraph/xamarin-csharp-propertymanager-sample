@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license. -->
+<!-- See LICENSE in the project root for license information -->
+
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
   <style name="Theme.Light.Button" parent="Widget.AppCompat.Button.Colored">
     <item name="android:colorButtonNormal">#bbb</item>

@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license. -->
+<!-- See LICENSE in the project root for license information -->
+
 <resources>
 	<string name="app_name">Property Manager</string>
 	<string name="login">Sign in with your work or school account in order to use this sample application. Access the sample code for this application at https://github.com/coatsy/xplat-graph</string>
