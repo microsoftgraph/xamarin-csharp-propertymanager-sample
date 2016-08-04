@@ -48,8 +48,10 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 
 You need to register your app in Azure AD.
 
-1 Sign in with an administrative user of your Office 365 tenant at the [Azure Management Portal](https://manage.windowsazure.com/).
-2. Select **Active Directory**. ![Screenshots of the Azure AD tab icon.](/Images/AAD.png "Azure AD tab icon.")
+1. Sign in with an administrative user of your Office 365 tenant at the [Azure Management Portal](https://manage.windowsazure.com/).
+2. Select **Active Directory**. 
+![Screenshots of the Azure AD tab icon.](/Images/AAD.png "Azure AD tab icon.")
+
 3. Select your Azure AD tenant in the **Directory** tab.
 4. Click on **Applications** in the tab menu.
 5. Click on the **Add** button at the bottom.
