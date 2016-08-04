@@ -118,8 +118,8 @@ After launching the app, click the **Sign in** button to sign in to your organiz
 
 You will also be able to update the details of the property and create new ones. Explore the Office 365 groups in your browser to find all of the data used within the app. The property details are stored in an Excel workbook named **Data.xlsx**, located in the **Property Managers** group. 
 
-| Screenshots        |
-| ------------- |
+| Platform Screenshots        |
+| :-------------: |
 | **Android**       |
 | <img src="/Images/PM_Android.png" alt="Sample running on Android." width="100%" /> |
 | **iOS**      |
