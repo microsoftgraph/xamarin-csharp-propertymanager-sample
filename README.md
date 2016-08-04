@@ -125,6 +125,18 @@ When this sample is started for the first time (in the Office 365 tenant) an Off
 
 For each property that is created within the app, a new Office 365 group is provisioned. In each group the files, conversations and tasks resources are used by the app. Tasks are the only thing that can be deleted (completed) from within the app. The app does not provide an ability to delete conversation posts or files. 
 
+**Android**
+
+![Screenshots of the sample running on Android.](/Images/PM_Android.png "Sample running on Android.")
+
+**iOS**
+
+![Screenshots of the sample running on iOS.](/Images/PM_iOS.png "Sample running on iOS.")
+
+**UWP**
+
+![Screenshots of the sample running on UWP.](/Images/PM_UWP.png "Sample running on UWP.")
+
 <a name="contributing"></a>
 ## Contributing ##
 
