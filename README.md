@@ -132,6 +132,3 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Copyright
 Copyright (c) 2016 Microsoft. All rights reserved.
-
-
-
