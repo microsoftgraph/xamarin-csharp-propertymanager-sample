@@ -140,6 +140,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 - [Microsoft Graph overview](http://graph.microsoft.io)
 - [Office developer code samples](http://dev.office.com/code-samples)
 - [Office dev center](http://dev.office.com/)
+- [Simon Jäger's blog on #Office365Dev](http://simonjaeger.com/)
 
 
 ## Copyright
