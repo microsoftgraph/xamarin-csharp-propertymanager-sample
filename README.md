@@ -19,7 +19,7 @@ The purpose of this sample is to demonstrate the ability to create platform user
 
 The samples uses the [Active Directory Authentication Library](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication and the [MvvmCross ](https://mvvmcross.com/) library to bring the [MVVM pattern](https://msdn.microsoft.com/en-us/library/hh848246.aspx) across platforms with Xamarin.
 
-![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP")
+![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP.")
 
 <a name="prerequisites"></a>
 ## Prerequisites ##
@@ -46,19 +46,24 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 <a name="register"></a>
 ##Register and configure the app
 
-1. Sign into the [App Registration Portal](https://apps.dev.microsoft.com/) using either your personal or work or school account.
-2. Select **Add an app**.
-3. Enter a name for the app, and select **Create application**.
-	
-	The registration page displays, listing the properties of your app.
- 
-4. Under **Platforms**, select **Add platform**.
-5. Select **Mobile application**.
-6. Copy the Client Id (App Id) value to the clipboard. You'll need to enter this value into the sample app.
+You need to register your app in Azure AD.
 
-	The app id is a unique identifier for your app.
-
-7. Select **Save**.
+1 Sign in with an administrative user of your Office 365 tenant at the [Azure Management Portal](https://manage.windowsazure.com/).
+2. Select **Active Directory**. ![Screenshots of the Azure AD tab icon.](/Images/AAD.png "Azure AD tab icon.")
+3. Select your Azure AD tenant in the **Directory** tab.
+4. Click on **Applications** in the tab menu.
+5. Click on the **Add** button at the bottom.
+6. Choose **Add an application my organization is developing** in the dialog that shows up.
+7. Name your application and select **Native Client Application**.
+8. Enter a **Redirect Uri**. You can use anything for this, for example: "https://propertymanagerapp".
+9. When the application has been created, click on the **Configure** tab in the application page.
+10. Scroll down to the bottom to the **Permissions to other applications** section and click on the **Add application** button.
+11. Show **Microsoft Apps** and add the **Microsoft Graph**.
+12. Save your changes by clicking the check button at the bottom.
+13. Click on **Delegated permissions** and pick the following permissions:
+    1.  Send mail
+    2.  dfg
+3.  Save your configuration by clicking the **Save** button at the bottom.
 
 <a name="build"></a>
 ## Build and debug ##
@@ -87,7 +92,7 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 
 After launching the app, click the **Sign in** button to sign in to your organizational account. After you authenticate, the app displays all the properties in your organization. Create a new one by filling in the details and the app will provision a new Office 365 Group for this property. At this point you will be able to type messages to the group conversation, add files and tasks.
 
-![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP")
+![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP.")
 
 You will also be able to update the details of the property and create new ones. Explore the Office 365 Groups in your browser to find all of the data used within the app. The property details are stored in an Excel workbook named **Data.xlsx**, located in the **Property Managers** group. 
 
