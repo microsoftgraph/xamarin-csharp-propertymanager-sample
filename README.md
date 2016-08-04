@@ -52,32 +52,35 @@ The first thing you need to do is to register your app in Azure AD.
 2. Select **Active Directory**.  
 ![Screenshots of the Azure AD tab icon.](/Images/AAD.png "Azure AD tab icon.")  
 3. Select your Azure AD tenant in the **Directory** tab.  
-![Screenshots of the Azure AD tab icon.](/Images/SelectTenant.png "Azure AD tab icon.")  
+![Screenshots of an Azure AD tenant.](/Images/SelectTenant.png "Azure AD tenant.")  
 4. Click on **Applications** in the tab menu.
 5. Click on the **Add** button at the bottom.  
-![Screenshots of the Azure AD tab icon.](/Images/AddApp.png "Azure AD tab icon.")  
+![Screenshots of the Add Application button](/Images/AddApp.png "Add Application button.")  
 6. Choose **Add an application my organization is developing** in the dialog that shows up.
 7. Name your application and select **Native Client Application**.
-8. Enter a **Redirect Uri**. You can use anything for this, for example: "https://propertymanagerapp".
+8. Enter a **Redirect Uri**. You can use anything for this, for example "https://propertymanagerapp".
 9. When the application has been created, click on the **Configure** tab in the application page.
 10. Scroll down to the bottom to the **Permissions to other applications** section and click on the **Add application** button.
 11. Show **Microsoft Apps** and add the **Microsoft Graph**.  
-![Screenshots of the Azure AD tab icon.](/Images/AddMSGraph.png "Azure AD tab icon.")  
+![Screenshots of the Microsoft Graph app.](/Images/AddMSGraph.png "Microsoft Graph app.")  
 12. Save your changes by clicking the check button at the bottom.
 13. Click on **Delegated permissions** and pick the following permissions:
-    1.  Send mail
-    2.  dfg
+    1.  Sign users in
+    2.  Read and write all groups
+    3.  Read items in all site collections
+    4.  Have full access to all files user can access
+    5.  Create, read, update and delete user tasks and projects (preview)
+    6.  Read directory data
 3.  Save your configuration by clicking the **Save** button at the bottom.  
-![Screenshots of the Azure AD tab icon.](/Images/SaveApp.png "Azure AD tab icon.")  
+![Screenshots of the Save Application button](/Images/SaveApp.png "Save Application button")  
 
 <a name="build"></a>
 ## Build and debug ##
 
 **Note:** If you see any errors while installing packages during step 2, make sure the local path where you placed the solution is not too long/deep. Moving the solution closer to the root of your drive resolves this issue.
 
-1. Open the Constants.cs file inside the **XamarinNativePropertyManager** project of the solution.
-
-    ![Screenshot of the Solution Explorer pane in Visual Studio, with App.cs file selected in the XamarinFormsMeetingManager project](/readme-images/Appdotcs.png "Open App.cs file in XamarinFormsMeetingManager project")
+1. Open the Constants.cs file inside the **XamarinNativePropertyManager** project of the solution.  
+![Screenshots of the Azure AD tab icon.](/Images/Constants.png "Azure AD tab icon.") 
 
 2. After you've loaded the solution in Visual Studio, configure the sample to use the client id that you registered by making this the value of the **ClientId** variable in the App.cs file.
 
