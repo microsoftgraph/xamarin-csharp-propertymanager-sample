@@ -13,9 +13,11 @@
 * [Additional resources](#additional-resources)
 
 <a name="introduction"></a>
-This sample project demonstrates how to use the Microsoft Graph as the only back-end component for a complete property management solution. The samples covers features such as property details, conversations, files and tasks in a Xamarin Native app. As the sample targets the beta branch of the Microsoft Graph, network calls are being made with the built in HTTP stack towards the Microsoft Graph instead of using the [Microsoft Graph .NET Client SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet).
+This sample project demonstrates how to use the Microsoft Graph as the only back-end component for a complete property management solution. The samples covers features such as property details, conversations, files and tasks in a Xamarin Native app.
 
-The purpose of this sample is to demonstrate the ability to create platform user interfaces and experiences, while sharing code across platforms and supercharging the solution with the Microsoft Graph. It heavily leverages Office 365 Groups in order to organize data into properties.
+The purpose of this sample is to demonstrate the ability to create platform user interfaces and experiences (by implementing native views), while sharing common code across platforms and supercharging the solution with the Microsoft Graph. It heavily leverages Office 365 groups in order to organize data into properties.
+
+> **Note** The sample targets the beta branch of the Microsoft Graph, which the [Microsoft Graph .NET Client SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet) does not implement. Instead, network calls are being made with the built in HTTP stack towards the Microsoft Graph to consume its resources.
 
 The samples uses the [Active Directory Authentication Library](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication and the [MvvmCross ](https://mvvmcross.com/) library to bring the [MVVM pattern](https://msdn.microsoft.com/en-us/library/hh848246.aspx) across platforms with Xamarin.
 
@@ -110,18 +112,18 @@ The first thing you need to do is to register your app in Azure AD.
 <a name="run"></a>
 ## Run the sample
 
-After launching the app, click the **Sign in** button to sign in to your organizational account. After you authenticate, the app displays all the properties in your organization. Create a new one by filling in the details and the app will provision a new Office 365 Group for this property. At this point you will be able to type messages to the group conversation, add files and tasks.
+After launching the app, click the **Sign in** button to sign in to your organizational account. After you authenticate, the app displays all the properties in your organization. Create a new one by filling in the details and the app will provision a new Office 365 group for this property. At this point you will be able to post messages to the group conversations, add files and create tasks.
 
 ![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP.")
 
-You will also be able to update the details of the property and create new ones. Explore the Office 365 Groups in your browser to find all of the data used within the app. The property details are stored in an Excel workbook named **Data.xlsx**, located in the **Property Managers** group. 
+You will also be able to update the details of the property and create new ones. Explore the Office 365 groups in your browser to find all of the data used within the app. The property details are stored in an Excel workbook named **Data.xlsx**, located in the **Property Managers** group. 
 
 <a name="#how-the-sample-affects-your-tenant-data"></a>
 ##How the sample affects your account data
 
-When this sample is started for the first time (in the Office 365 tenant) an Office 365 Group named **Property Managers** is created. In this group, a **Data.xlsx** file is stored which hosts all of the details for the different properties.
+When this sample is started for the first time (in the Office 365 tenant) an Office 365 group named **Property Managers** is created. In this group, a **Data.xlsx** file is stored which hosts all of the details for the different properties.
 
-For each property that is created within the app, a new Office 365 group is provisioned. In each group the files, conversations and tasks features are used. Tasks are the only thing that can be deleted (completed) from within the app. The app does not provide an ability to delete conversations posts or files. 
+For each property that is created within the app, a new Office 365 group is provisioned. In each group the files, conversations and tasks resources are used by the app. Tasks are the only thing that can be deleted (completed) from within the app. The app does not provide an ability to delete conversation posts or files. 
 
 <a name="contributing"></a>
 ## Contributing ##
