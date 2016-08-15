@@ -43,7 +43,7 @@
             <Setter Property="IsItemClickEnabled" Value="True"/>
             <Setter Property="SelectionMode" Value="None"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="Margin" Value="0,125,0,0"/>
+            <Setter Property="Margin" Value="0,155,0,0"/>
             <Setter Property="IsMultiSelectCheckBoxEnabled" Value="False"/>
             <Setter Property="ItemContainerStyle">
                 <Setter.Value>
@@ -133,6 +133,11 @@
 
         <TextBlock x:Name="TitleTextBlock" Style="{StaticResource TitleTextBlockStyle}"
                    Text="Property Manager"/>
+
+        <controls:PointerTextBlock Text="Add a property" Foreground="{StaticResource AccentColorBrush}"
+                                   Margin="0,125,0,0" Tapped="OnAddPropertyItemTapped"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"/>
 
         <!--Normal Grid View-->
         <GridView x:Name="NormalGridView" ItemsSource="{Binding FilteredGroups}"
