@@ -138,7 +138,8 @@ namespace XamarinNativePropertyManager.Services
 
         public Task<GroupModel[]> GetUserGroupsAsync()
         {
-            return GetManyAsync<GroupModel>("me/memberOf");
+            // Expanding the total amount of groups to the maximum (999).
+            return GetManyAsync<GroupModel>("me/memberOf?$top=999");
         }
 
         public Task<DriveItemModel[]> GetUserDriveItemAsync()
@@ -155,7 +156,8 @@ namespace XamarinNativePropertyManager.Services
 
         public Task<GroupModel[]> GetGroupsAsync()
         {
-            return GetManyAsync<GroupModel>("groups/");
+            // Expanding the total amount of groups to the maximum (999).
+            return GetManyAsync<GroupModel>("groups?$top=999");
         }
 
         public Task<UserModel[]> GetGroupUsersAsync(GroupModel group)
