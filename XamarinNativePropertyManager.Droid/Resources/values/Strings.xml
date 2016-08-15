@@ -4,7 +4,7 @@
 
 <resources>
 	<string name="app_name">Property Manager</string>
-	<string name="login">Sign in with your work or school account in order to use this sample application. Access the sample code for this application at https://github.com/coatsy/xplat-graph</string>
+	<string name="login">Sign in with your work or school account in order to use this sample application. Access the sample code for this application at https://github.com/microsoftgraph/xamarin-csharp-propertymanager-sample</string>
 	<string name="who_are_you">Who are you?</string>
 	<string name="sign_in">Sign in</string>
 	<string name="type_a_message">Type a message...</string>

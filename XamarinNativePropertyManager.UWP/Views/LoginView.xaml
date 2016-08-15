@@ -44,7 +44,7 @@
             <TextBlock Style="{StaticResource CenteredFadedBodyTextBlock}"
                        Margin="0,10,0,15">
                 <Run Text="Sign in with your work or school account in order to use this sample application. Access the sample code for this application at"/>
-                <Run Text="https://github.com/coatsy/xplat-graph"/>
+                <Run Text="https://github.com/microsoftgraph/xamarin-csharp-propertymanager-sample"/>
             </TextBlock>
 
             <Grid HorizontalAlignment="Stretch" Height="50">
