@@ -66,7 +66,7 @@ namespace XamarinNativePropertyManager.ViewModels
                 }));
 
             // Get the group belonging to this app.
-            var appGroup = allGroups.FirstOrDefault(g => g.Mail.StartsWith(
+            var appGroup = allGroups.FirstOrDefault(g => g.Mail != null && g.Mail.StartsWith(
                 Constants.AppGroupMail));
 
             // If the app group doesn't exist, create it.
