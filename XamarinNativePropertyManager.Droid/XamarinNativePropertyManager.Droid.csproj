@@ -29,10 +29,7 @@
     <ConsolePause>false</ConsolePause>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-    <BundleAssemblies>False</BundleAssemblies>
-    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
     <Debugger>Xamarin</Debugger>
-    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -146,12 +143,11 @@
   <ItemGroup>
     <ProjectReference Include="..\XamarinNativePropertyManager\XamarinNativePropertyManager.csproj">
       <Name>XamarinNativePropertyManager</Name>
+      <Project>{1787C9B9-3D01-4722-B38A-1F2F17C648C9}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\ConversationListViewAdapter.cs" />
-    <Compile Include="Adapters\FragmentInfo.cs" />
-    <Compile Include="Adapters\GroupViewFragmentsAdapter.cs" />
     <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
     <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
     <Compile Include="Converters\FileTypeToIconConverter.cs" />
@@ -444,5 +440,5 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_account_circle_black_48dp.png" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

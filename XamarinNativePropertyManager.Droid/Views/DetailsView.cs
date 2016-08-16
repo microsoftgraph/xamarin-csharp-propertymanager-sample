@@ -34,12 +34,12 @@ namespace XamarinNativePropertyManager.Droid.Views
             // an input change occurs.
             var editTexts = new List<EditText>
             {
-                (EditText)FindViewById(Resource.Id.street_name_edit_text),
-                (EditText)FindViewById(Resource.Id.description_edit_text),
-                (EditText)FindViewById(Resource.Id.rooms_edit_text),
-                (EditText)FindViewById(Resource.Id.lot_size_edit_text),
-                (EditText)FindViewById(Resource.Id.living_area_edit_text),
-                (EditText)FindViewById(Resource.Id.operating_costs_edit_text),
+                FindViewById<EditText>(Resource.Id.street_name_edit_text),
+                FindViewById<EditText>(Resource.Id.description_edit_text),
+                FindViewById<EditText>(Resource.Id.rooms_edit_text),
+                FindViewById<EditText>(Resource.Id.lot_size_edit_text),
+                FindViewById<EditText>(Resource.Id.living_area_edit_text),
+                FindViewById<EditText>(Resource.Id.operating_costs_edit_text)
             };
 
             // Hook up the event handler.

@@ -11,10 +11,12 @@ using XamarinNativePropertyManager.ViewModels;
 using MvvmCross.Binding.Droid.Views;
 using XamarinNativePropertyManager.Droid.Adapters;
 using Java.Lang;
+using MvvmCross.Platform.IoC;
 
 namespace XamarinNativePropertyManager.Droid.Fragments
 {
-    public class ConversationsFragment : MvxFragment
+    [MvxUnconventional]
+    public class ConversationsFragment : MvxFragment<GroupViewModel>
     {
         private MvxListView _conversationsListView;
 
@@ -29,21 +31,16 @@ namespace XamarinNativePropertyManager.Droid.Fragments
         {
             base.OnViewCreated(view, savedInstanceState);
 
-            // Get the group view model.
-            var viewModel = ViewModel as GroupViewModel;
-            if (viewModel != null)
-            {
-                viewModel.ConversationsChanged += OnConversationsChanged;
-            }
+            ViewModel.ConversationsChanged += OnConversationsChanged;
 
             // Get the list view and configure the adapter.
-            _conversationsListView = (MvxListView)view.FindViewById(Resource.Id.conversation_list_view);
+            _conversationsListView = view.FindViewById<MvxListView>(Resource.Id.conversation_list_view);
             _conversationsListView.Adapter = new ConversationListViewAdapter(Context, 
                 (IMvxAndroidBindingContext)BindingContext);
 
             // Get EditText and hook up the event listeners.
-            var conversationEditText = (Android.Support.V7.Widget.AppCompatEditText)
-                view.FindViewById(Resource.Id.conversation_edit_text);
+            var conversationEditText = 
+                view.FindViewById<Android.Support.V7.Widget.AppCompatEditText>(Resource.Id.conversation_edit_text);
             conversationEditText.EditorAction += OnConversationEditorAction;
         }
 
@@ -59,7 +56,7 @@ namespace XamarinNativePropertyManager.Droid.Fragments
         {
             if (e.ActionId == Android.Views.InputMethods.ImeAction.Send)
             {
-                (ViewModel as GroupViewModel)?.AddConversationCommand.Execute(null);
+                ViewModel?.AddConversationCommand.Execute(null);
                 e.Handled = true;
             }
         }

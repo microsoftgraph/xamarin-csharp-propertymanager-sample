@@ -10,10 +10,12 @@ using MvvmCross.Binding.Droid.BindingContext;
 using MvvmCross.Binding.Droid.Views;
 using XamarinNativePropertyManager.ViewModels;
 using Java.Lang;
+using MvvmCross.Platform.IoC;
 
 namespace XamarinNativePropertyManager.Droid.Fragments
 {
-    public class FilesFragment : MvxFragment
+    [MvxUnconventional]
+    public class FilesFragment : MvxFragment<GroupViewModel>
     {
         private MvxListView _filesListView;
 
@@ -28,15 +30,10 @@ namespace XamarinNativePropertyManager.Droid.Fragments
         {
             base.OnViewCreated(view, savedInstanceState);
 
-            // Get the group view model.
-            var viewModel = ViewModel as GroupViewModel;
-            if (viewModel != null)
-            {
-                viewModel.FilesChanged += OnFilesChanged;
-            }
+            ViewModel.FilesChanged += OnFilesChanged;
 
             // Get the list view.
-            _filesListView = (MvxListView)view.FindViewById(Resource.Id.files_list_view);
+            _filesListView = view.FindViewById<MvxListView>(Resource.Id.files_list_view);
         }
 
         private void OnFilesChanged(GroupViewModel sender)

@@ -10,10 +10,12 @@ using MvvmCross.Binding.Droid.BindingContext;
 using XamarinNativePropertyManager.ViewModels;
 using MvvmCross.Binding.Droid.Views;
 using Java.Lang;
+using MvvmCross.Platform.IoC;
 
 namespace XamarinNativePropertyManager.Droid.Fragments
 {
-    public class TasksFragment : MvxFragment
+    [MvxUnconventional]
+    public class TasksFragment : MvxFragment<GroupViewModel>
     {
         private MvxListView _tasksListView;
 
@@ -28,19 +30,14 @@ namespace XamarinNativePropertyManager.Droid.Fragments
         {
             base.OnViewCreated(view, savedInstanceState);
 
-            // Get the group view model.
-            var viewModel = ViewModel as GroupViewModel;
-            if (viewModel != null)
-            {
-                viewModel.TasksChanged += OnTasksChanged;
-            }
+            ViewModel.TasksChanged += OnTasksChanged;
 
             // Get the list view.
-            _tasksListView = (MvxListView)view.FindViewById(Resource.Id.tasks_list_view);
+            _tasksListView = view.FindViewById<MvxListView>(Resource.Id.tasks_list_view);
             
             // Get EditText and hook up the event listeners.
-            var taskEditText = (Android.Support.V7.Widget.AppCompatEditText)
-                view.FindViewById(Resource.Id.task_edit_text);
+            var taskEditText = 
+                view.FindViewById<Android.Support.V7.Widget.AppCompatEditText>(Resource.Id.task_edit_text);
             taskEditText.EditorAction += OnTaskEditorAction;
         }
 
@@ -56,7 +53,7 @@ namespace XamarinNativePropertyManager.Droid.Fragments
         {
             if (e.ActionId == Android.Views.InputMethods.ImeAction.Send)
             {
-                (ViewModel as GroupViewModel)?.AddTaskCommand.Execute(null);
+                ViewModel?.AddTaskCommand.Execute(null);
                 e.Handled = true;
             }
         }

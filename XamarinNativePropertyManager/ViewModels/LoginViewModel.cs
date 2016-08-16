@@ -40,7 +40,7 @@ namespace XamarinNativePropertyManager.ViewModels
                 // Make sure that the Graph service is configured.
                 await _graphService.EnsureTokenIsPresentAsync();
             }
-            catch
+            catch (Exception ex)
             {
                 IsLoading = false;
                 return;

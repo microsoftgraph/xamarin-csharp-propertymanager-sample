@@ -3,16 +3,20 @@
  *  See LICENSE in the source repository root for complete license information.
  */
 
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using MvvmCross.Droid.Support.V7.AppCompat;
-using XamarinNativePropertyManager.ViewModels;
+using Android.Support.Design.Widget;
 using Android.Support.V4.View;
-using XamarinNativePropertyManager.Droid.Adapters;
+using Android.Support.V7.Widget;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using MvvmCross.Droid.Support.V4;
+using MvvmCross.Droid.Support.V7.AppCompat;
+using XamarinNativePropertyManager.Droid.Fragments;
 using XamarinNativePropertyManager.Droid.Services;
+using XamarinNativePropertyManager.ViewModels;
 
 namespace XamarinNativePropertyManager.Droid.Views
 {
@@ -35,22 +39,26 @@ namespace XamarinNativePropertyManager.Droid.Views
             base.OnViewModelSet();
 
             // Get toolbar and set title.
-            var toolbar = (Android.Support.V7.Widget.Toolbar)FindViewById(Resource.Id.toolbar);
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             toolbar.Title = Title;
 
             // Configure tab layout.
-            ViewPager viewPager = (ViewPager)FindViewById(Resource.Id.view_pager);
-            viewPager.Adapter = new GroupViewFragmentsAdapter(this);
+            var viewPager = FindViewById<ViewPager>(Resource.Id.view_pager);
+            var fragments = new List<MvxCachingFragmentStatePagerAdapter.FragmentInfo>
+                {
+                    new MvxCachingFragmentStatePagerAdapter.FragmentInfo("Details", typeof(DetailsFragment), typeof(GroupViewModel)),
+                    new MvxCachingFragmentStatePagerAdapter.FragmentInfo("Conversations", typeof(ConversationsFragment), typeof(GroupViewModel)),
+                    new MvxCachingFragmentStatePagerAdapter.FragmentInfo("Files", typeof(FilesFragment), typeof(GroupViewModel)),
+                    new MvxCachingFragmentStatePagerAdapter.FragmentInfo("Tasks", typeof(TasksFragment), typeof(GroupViewModel)),
+                };
+            viewPager.Adapter = new MvxCachingFragmentStatePagerAdapter(this, SupportFragmentManager, fragments);
 
-            var tabLayout = FindViewById<Android.Support.Design.Widget.TabLayout>(
-                Resource.Id.tab_layout);
+            var tabLayout = FindViewById<TabLayout>(Resource.Id.tab_layout);
             tabLayout.SetupWithViewPager(viewPager);
 
             // Get the FABs and hook up the event listeners.
-            _editDetailsActionButton = (Android.Support.Design.Widget.FloatingActionButton)
-             FindViewById(Resource.Id.edit_details_fab);
-            _addFileActionButton = (Android.Support.Design.Widget.FloatingActionButton)
-                FindViewById(Resource.Id.add_file_fab);
+            _editDetailsActionButton = FindViewById<FloatingActionButton>(Resource.Id.edit_details_fab);
+            _addFileActionButton = FindViewById<FloatingActionButton>(Resource.Id.add_file_fab);
             viewPager.PageSelected += OnPageSelected;
             OnPageSelected(null, new ViewPager.PageSelectedEventArgs(
                 tabLayout.SelectedTabPosition));
