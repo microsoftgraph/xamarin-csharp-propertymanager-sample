@@ -17,7 +17,7 @@ using XamarinNativePropertyManager.Services;
 
 namespace XamarinNativePropertyManager.ViewModels
 {
-    public class LoginViewModel : BaseV
+    public class LoginViewModel : BaseViewModel
     {
         private readonly IGraphService _graphService;
         private readonly IConfigService _configService;

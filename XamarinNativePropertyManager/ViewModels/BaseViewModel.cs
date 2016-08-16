@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace XamarinNativePropertyManager.ViewModels
 {
-	public abstract class BaseV : MvxViewModel
+	public abstract class BaseViewModel : MvxViewModel
     {
         protected bool _isLoading;
 

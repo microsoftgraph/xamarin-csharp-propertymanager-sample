@@ -23,7 +23,7 @@ namespace XamarinNativePropertyManager.ViewModels
 
     public delegate void TasksChangedEventHandler(GroupViewModel sender);
 
-    public class GroupViewModel : BaseV
+    public class GroupViewModel : BaseViewModel
     {
         private readonly IGraphService _graphService;
         private readonly IConfigService _configService;

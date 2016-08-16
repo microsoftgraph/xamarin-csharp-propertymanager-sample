@@ -14,7 +14,7 @@ using XamarinNativePropertyManager.Services;
 
 namespace XamarinNativePropertyManager.ViewModels
 {
-    public class GroupsViewModel : BaseV
+    public class GroupsViewModel : BaseViewModel
     {
         private readonly IConfigService _configService;
 
