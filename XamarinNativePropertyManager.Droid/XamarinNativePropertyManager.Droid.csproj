@@ -148,6 +148,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\ConversationListViewAdapter.cs" />
+    <Compile Include="Adapters\FragmentInfo.cs" />
+    <Compile Include="Adapters\GroupViewFragmentsAdapter.cs" />
     <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
     <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
     <Compile Include="Converters\FileTypeToIconConverter.cs" />

@@ -14,6 +14,7 @@ using Android.Support.V7.Widget;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Droid.Support.V7.AppCompat;
+using XamarinNativePropertyManager.Droid.Adapters;
 using XamarinNativePropertyManager.Droid.Fragments;
 using XamarinNativePropertyManager.Droid.Services;
 using XamarinNativePropertyManager.ViewModels;
@@ -44,14 +45,7 @@ namespace XamarinNativePropertyManager.Droid.Views
 
             // Configure tab layout.
             var viewPager = FindViewById<ViewPager>(Resource.Id.view_pager);
-            var fragments = new List<MvxCachingFragmentStatePagerAdapter.FragmentInfo>
-                {
-                    new MvxCachingFragmentStatePagerAdapter.FragmentInfo("Details", typeof(DetailsFragment), typeof(GroupViewModel)),
-                    new MvxCachingFragmentStatePagerAdapter.FragmentInfo("Conversations", typeof(ConversationsFragment), typeof(GroupViewModel)),
-                    new MvxCachingFragmentStatePagerAdapter.FragmentInfo("Files", typeof(FilesFragment), typeof(GroupViewModel)),
-                    new MvxCachingFragmentStatePagerAdapter.FragmentInfo("Tasks", typeof(TasksFragment), typeof(GroupViewModel)),
-                };
-            viewPager.Adapter = new MvxCachingFragmentStatePagerAdapter(this, SupportFragmentManager, fragments);
+            viewPager.Adapter = new GroupViewFragmentsAdapter(this);
 
             var tabLayout = FindViewById<TabLayout>(Resource.Id.tab_layout);
             tabLayout.SetupWithViewPager(viewPager);
