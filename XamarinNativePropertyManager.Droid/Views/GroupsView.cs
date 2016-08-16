@@ -11,6 +11,7 @@ using Android.Support.V4.View;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using MvvmCross.Binding.BindingContext;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using XamarinNativePropertyManager.ViewModels;
 
@@ -29,6 +30,7 @@ namespace XamarinNativePropertyManager.Droid.Views
         {
             Title = "Properties";
             SetContentView(Resource.Layout.GroupsActivity);
+
             base.OnViewModelSet();
         }
 
@@ -42,19 +44,16 @@ namespace XamarinNativePropertyManager.Droid.Views
         {
             MenuInflater.Inflate(Resource.Menu.GroupsMenu, menu);
 
-            // Configure the search view by feeding the query back
-            // into the view model.
+            // Find the search view.
             var searchItem = menu.FindItem(Resource.Id.action_groups_search);
             var searchView = (SearchView)MenuItemCompat.GetActionView(searchItem);
-            searchView.QueryTextChange += (sender, e) =>
-            {
-                ViewModel.Query = e.NewText;
-            };
-            searchView.QueryTextSubmit += (sender, e) =>
-            {
-                ViewModel.Query = e.Query;
-                e.Handled = true;
-            };
+
+            // Create the binding set and set bind the search
+            // view query.
+            var set = this.CreateBindingSet<GroupsView, GroupsViewModel>();
+            set.Bind(searchView).For(s => s.Query).To(vm => vm.Query);
+            set.Apply();
+
             return base.OnCreateOptionsMenu(menu);
         }
 

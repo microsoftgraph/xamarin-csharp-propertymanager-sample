@@ -4,7 +4,6 @@
  */
 
 using Android.Content;
-using MvvmCross.Droid.Platform;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform.Platform;
 using MvvmCross.Platform;
@@ -12,12 +11,13 @@ using XamarinNativePropertyManager.Services;
 using XamarinNativePropertyManager.Droid.Services;
 using System;
 using System.Collections.Generic;
+using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Plugins.Visibility;
 using XamarinNativePropertyManager.Droid.Converters;
 
 namespace XamarinNativePropertyManager.Droid
 {
-    public class Setup : MvxAndroidSetup
+    public class Setup : MvxAppCompatSetup
     {
         protected override IEnumerable<Type> ValueConverterHolders => new List<Type>
         {
