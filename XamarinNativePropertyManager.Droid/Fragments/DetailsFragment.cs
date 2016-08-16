@@ -4,6 +4,7 @@
  */
 
 using Android.OS;
+using Android.Runtime;
 using Android.Views;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Binding.Droid.BindingContext;
@@ -13,6 +14,7 @@ using MvvmCross.Platform.IoC;
 namespace XamarinNativePropertyManager.Droid.Fragments
 {
     [MvxUnconventional]
+    [Register("xamarinnativepropertymanager.droid.fragments.DetailsFragment")]
     public class DetailsFragment : MvxFragment<GroupViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, 

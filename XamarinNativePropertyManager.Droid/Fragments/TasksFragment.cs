@@ -4,6 +4,7 @@
  */
 
 using Android.OS;
+using Android.Runtime;
 using Android.Views;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Binding.Droid.BindingContext;
@@ -15,6 +16,7 @@ using MvvmCross.Platform.IoC;
 namespace XamarinNativePropertyManager.Droid.Fragments
 {
     [MvxUnconventional]
+    [Register("xamarinnativepropertymanager.droid.fragments.TasksFragment")]
     public class TasksFragment : MvxFragment<GroupViewModel>
     {
         private MvxListView _tasksListView;
