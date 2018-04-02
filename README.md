@@ -1,9 +1,9 @@
 # Microsoft Graph Property Manager Sample for Xamarin Native
 
-##Table of contents
+## Table of contents
 
 * [Prerequisites](#prerequisites)
-* [Register and configure the app](#register)
+* [Register and configure the app](#register-and-configure-the-app)
 * [Build and debug](#build)
 * [Run the sample](#run)
 * [How the sample affects your account data](#how-the-sample-affects-your-tenant-data)
@@ -12,51 +12,50 @@
 * [Contributing](#contributing")
 * [Additional resources](#additional-resources)
 
-<a name="introduction"></a>
 This sample project demonstrates how to use the Microsoft Graph as the only back-end component for a complete property management solution. The samples covers features such as property details, conversations, files and tasks in a Xamarin Native app.
 
 The purpose of this sample is to demonstrate the ability to create platform user interfaces and experiences (by implementing native views), while sharing common code across platforms and supercharging the solution with the Microsoft Graph. It heavily leverages Office 365 groups in order to organize data into properties.
 
 > **Note** The sample targets the beta branch of the Microsoft Graph, which the [Microsoft Graph .NET Client SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet) does not implement. Instead, network calls are being made with the built in HTTP stack towards the Microsoft Graph to consume its resources.
 
-The samples uses the [Active Directory Authentication Library](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication and the [MvvmCross ](https://mvvmcross.com/) library to bring the [MVVM pattern](https://msdn.microsoft.com/en-us/library/hh848246.aspx) across platforms with Xamarin.
+The samples uses the [Active Directory Authentication Library](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication and the [MvvmCross](https://mvvmcross.com/) library to bring the [MVVM pattern](https://msdn.microsoft.com/en-us/library/hh848246.aspx) across platforms with Xamarin.
 
-![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP.")  
+![Screenshots of the sample running on Android, iOS and UWP project.](/Images/PM_OSes.png "Sample running on Android, iOS and UWP.")
 
-### Project ###
+### Project
+
 Project | Author(s)
 ---------|----------
 XamarinNativePropertyManager | [Simon Jäger](http://simonjaeger.com/) (**Microsoft**)
 
-### Version history ###
+### Version history
+
 Version  | Date | Comments
 ---------| -----| --------
 1.0  | August 4th 2016 | Initial release
 
-<a name="prerequisites"></a>
-## Prerequisites ##
+## Prerequisites
 
 This sample requires the following:  
 
-  * [Visual Studio 2015](https://www.visualstudio.com/downloads) 
-  * [Xamarin for Visual Studio](https://www.xamarin.com/visual-studio)
-  * Windows 10 ([development mode enabled](https://msdn.microsoft.com/library/windows/apps/xaml/dn706236.aspx))
-  * An [Office 365 account](https://msdn.microsoft.com/office/office365/howto/setup-development-environment#bk_Office365Account)
+- [Visual Studio 2015](https://www.visualstudio.com/downloads) 
+- [Xamarin for Visual Studio](https://www.xamarin.com/visual-studio)
+- Windows 10 ([development mode enabled](https://msdn.microsoft.com/library/windows/apps/xaml/dn706236.aspx))
+-  An [Office 365 account](https://msdn.microsoft.com/office/office365/howto/setup-development-environment#bk_Office365Account)
 
 If you are building for Office 365 and you're missing an Office 365 tenant - get yourself a developer account at: <http://dev.office.com/devprogram>
 
 If you want to run the iOS project in this sample, you'll need the following:
 
-  * The latest iOS SDK
-  * The latest version of Xcode
-  * Mac OS X Yosemite(10.10) & above 
-  * [Xamarin.iOS](https://developer.xamarin.com/guides/ios/getting_started/installation/mac/)
-  * A [Xamarin Mac agent connected to Visual Studio](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
+- The latest iOS SDK
+- The latest version of Xcode
+- Mac OS X Yosemite(10.10) & above 
+- [Xamarin.iOS](https://developer.xamarin.com/guides/ios/getting_started/installation/mac/)
+- A [Xamarin Mac agent connected to Visual Studio](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
 You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project.
 
-<a name="register"></a>
-##Register and configure the app
+## Register and configure the app
 
 The first thing you need to do is to register your app in Azure AD.
 
