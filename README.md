@@ -38,8 +38,7 @@ Version  | Date | Comments
 
 This sample requires the following:  
 
-- [Visual Studio 2015](https://www.visualstudio.com/downloads) 
-- [Xamarin for Visual Studio](https://www.xamarin.com/visual-studio)
+- [Visual Studio 2017](https://www.visualstudio.com/downloads) with the [Xamarin](https://www.xamarin.com/visual-studio) workload installed
 - Windows 10 ([development mode enabled](https://msdn.microsoft.com/library/windows/apps/xaml/dn706236.aspx))
 -  An [Office 365 account](https://msdn.microsoft.com/office/office365/howto/setup-development-environment#bk_Office365Account)
 
