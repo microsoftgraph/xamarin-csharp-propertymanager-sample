@@ -72,16 +72,20 @@ The first thing you need to do is to register your app in the [Application Regis
 1. Open the Constants.cs file inside the **XamarinNativePropertyManager (Portable)** project of the solution.  
 ![Screenshots of the Constants.cs file.](/Images/Constants.png "Constants.cs.") 
 
-2. After you've loaded the solution in Visual Studio, configure the sample to use your Azure AD tenant by replacing the **[TENANT_ID_OR_NAME]** value in the **Authority** property in the **Constants.cs** file.  
+1. After you've loaded the solution in Visual Studio, configure the sample to use your Azure AD tenant by replacing the **[TENANT_ID_OR_NAME]** value in the **Authority** property in the **Constants.cs** file.  
 ![Screenshots of the Authority property in the Constants.cs file.](/Images/TenantId.png "Authority property.") 
 
-3. Configure the sample to use your Azure AD application Client Id by replacing the **[CLIENT_ID]** value in the **ClientId** property in the **Constants.cs** file.  
+1. Configure the sample to use your Azure AD application Client Id by replacing the **[CLIENT_ID]** value in the **ClientId** property in the **Constants.cs** file.  
 ![Screenshots of the ClientId property in the Constants.cs file.](/Images/ClientId.png "ClientId property.") 
 
-3. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project.  
+1. Open the **XamarinNativePropertyManager.Droid/Properties/AndroidManifest.xml** file. Replace the `[CLIENT_ID`] value with your client ID.
+
+    > **Note:** If you're using Visual Studio for Mac, be sure to click the **Source** tab after opening **AndroidManifest.xml**.
+
+1. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project.  
 ![Screenshot of the Visual Studio toolbar, with UWP selected as the start-up project.](/Images/Projects.png "Select start-up project.") 
 
-4. Press F5 to build and debug. Run the solution and sign in with either your personal or work or school account.
+1. Press F5 to build and debug. Run the solution and sign in with either your personal or work or school account.
     > **Note** You might have to open the Build Configuration Manager to make sure that the Build and Deploy steps are selected for the UWP project.
 
 <a name="run"></a>

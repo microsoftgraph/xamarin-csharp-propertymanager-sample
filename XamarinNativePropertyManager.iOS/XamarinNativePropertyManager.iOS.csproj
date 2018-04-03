@@ -116,6 +116,7 @@
   <ItemGroup>
     <ProjectReference Include="..\XamarinNativePropertyManager\XamarinNativePropertyManager.csproj">
       <Name>XamarinNativePropertyManager</Name>
+      <Project>{1787C9B9-3D01-4722-B38A-1F2F17C648C9}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
