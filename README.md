@@ -57,33 +57,13 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 
 ## Register and configure the app
 
-The first thing you need to do is to register your app in Azure AD.
+The first thing you need to do is to register your app in the [Application Registration Portal](https://apps.dev.microsoft.com).
 
-1. Sign in with an administrative user of your Office 365 tenant at the [Azure Management Portal](https://manage.windowsazure.com/).
-2. Select **Active Directory**.  
-![Screenshots of the Azure AD tab icon.](/Images/AAD.png "Azure AD tab icon.")  
-3. Select your Azure AD tenant in the **Directory** tab.  
-![Screenshots of an Azure AD tenant.](/Images/SelectTenant.png "Azure AD tenant.")  
-4. Click on **Applications** in the tab menu.
-5. Click on the **Add** button at the bottom.  
-![Screenshots of the Add Application button](/Images/AddApp.png "Add Application button.")  
-6. Choose **Add an application my organization is developing** in the dialog that shows up.
-7. Name your application and select **Native Client Application**.
-8. Enter a **Redirect Uri**. You can use anything for this, for example "https://propertymanagerapp".
-9. When the application has been created, click on the **Configure** tab in the application page.
-10. Scroll down to the bottom to the **Permissions to other applications** section and click on the **Add application** button.
-11. Show **Microsoft Apps** and add the **Microsoft Graph**.
-12. Save your changes by clicking the check button at the bottom.  
-![Screenshots of the Microsoft Graph app.](/Images/AddMSGraph.png "Microsoft Graph app.")  
-13. Click on **Delegated permissions** and pick the following permissions:
-    1.  Sign users in
-    2.  Read and write all groups
-    3.  Read items in all site collections
-    4.  Have full access to all files user can access
-    5.  Create, read, update and delete user tasks and projects (preview)
-    6.  Read directory data
-3.  Save your configuration by clicking the **Save** button at the bottom.  
-![Screenshots of the Save Application button.](/Images/SaveApp.png "Save Application button.")  
+1. Sign in to the [Application Registration Portal](https://apps.dev.microsoft.com).
+1. Choose **Add an app**.
+1. Enter a name for the app and choose **Create**.
+1. Choose **Add Platform**, then choose **Native Application**.
+1. Choose **Save**.
 
 <a name="build"></a>
 ## Build and debug ##
@@ -98,9 +78,6 @@ The first thing you need to do is to register your app in Azure AD.
 
 3. Configure the sample to use your Azure AD application Client Id by replacing the **[CLIENT_ID]** value in the **ClientId** property in the **Constants.cs** file.  
 ![Screenshots of the ClientId property in the Constants.cs file.](/Images/ClientId.png "ClientId property.") 
-
-3. Configure the sample to use your Azure AD application Redirect Uri by replacing the **[REDIRECT_URI]** value in the **RedirectUri** property in the **Constants.cs** file.  
-![Screenshots of the RedirectUri property in the Constants.cs file.](/Images/RedirectUri.png "RedirectUri property.") 
 
 3. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project.  
 ![Screenshot of the Visual Studio toolbar, with UWP selected as the start-up project.](/Images/Projects.png "Select start-up project.") 
@@ -118,15 +95,16 @@ You will also be able to update the details of the property and create new ones.
 | Platform Screenshots        |
 | :-------------: |
 | **Android**       |
-| <img src="/Images/PM_Android.png" alt="Sample running on Android." width="100%" /> |
+| <img src="Images/PM_Android.png" alt="Sample running on Android." width="100%" /> |
 | **iOS**      |
-| <img src="/Images/PM_iOS.png" alt="Sample running on Android." width="100%" /> |
+| <img src="Images/PM_iOS.png" alt="Sample running on Android." width="100%" /> |
 | **UWP** |
-| <img src="/Images/PM_UWP1.png" alt="Sample running on Android." width="100%" /> |
+| <img src="Images/PM_UWP1.png" alt="Sample running on Android." width="100%" /> |
 
 
 <a name="#how-the-sample-affects-your-tenant-data"></a>
-##How the sample affects your account data
+
+## How the sample affects your account data
 
 When this sample is started for the first time (in the Office 365 tenant) an Office 365 group named **Property Managers** is created. In this group, a **Data.xlsx** file is stored which hosts all of the details for the different properties.
 

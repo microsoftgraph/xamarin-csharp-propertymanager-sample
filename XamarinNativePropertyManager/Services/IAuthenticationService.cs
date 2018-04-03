@@ -4,7 +4,7 @@
  */
 
 using System.Threading.Tasks;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Identity.Client;
 
 namespace XamarinNativePropertyManager.Services
 {

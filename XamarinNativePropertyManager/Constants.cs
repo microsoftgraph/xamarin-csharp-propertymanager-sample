@@ -4,6 +4,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -13,11 +14,17 @@ namespace XamarinNativePropertyManager
     {
         public static string Authority => "https://login.microsoftonline.com/[TENANT_ID_OR_NAME]";
 
-        public static string GraphResource => "https://graph.microsoft.com/";
-
         public static string ClientId => "[CLIENT_ID]";
 
-        public static Uri RedirectUri => new Uri("[REDIRECT_URI]");
+        public static List<string> Scopes => new List<string>()
+        {
+            "User.Read",
+            "Group.ReadWrite.All",
+            "Sites.Read.All",
+            "Files.ReadWrite.All",
+            "Tasks.ReadWrite",
+            "Directory.Read.All"
+        };
 
         public static string AppGroupDisplayName => "Property Managers";
 

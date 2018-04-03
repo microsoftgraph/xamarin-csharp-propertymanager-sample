@@ -11,7 +11,7 @@ using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V4.View;
 using Android.Support.V7.Widget;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Identity.Client;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using XamarinNativePropertyManager.Droid.Adapters;
@@ -97,7 +97,7 @@ namespace XamarinNativePropertyManager.Droid.Views
                     ContentResolver, requestCode, resultCode, data);
                 return;
             }
-            AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(
+            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(
                 requestCode, resultCode, data);
         }
     }
