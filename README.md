@@ -82,6 +82,10 @@ The first thing you need to do is to register your app in the [Application Regis
 
     > **Note:** If you're using Visual Studio for Mac, be sure to click the **Source** tab after opening **AndroidManifest.xml**.
 
+1. Open the **XamarinNativePropertyManager.iOS/Info.plist** file. Select the **Advanced** tab and locate the **URL Types** section. Replace `[CLIENT_ID]` with your client ID.
+
+    ![A screenshot of the URL Types section of the Info.plist file](Images/url_in_info_plist.png)
+
 1. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project.  
 ![Screenshot of the Visual Studio toolbar, with UWP selected as the start-up project.](/Images/Projects.png "Select start-up project.") 
 

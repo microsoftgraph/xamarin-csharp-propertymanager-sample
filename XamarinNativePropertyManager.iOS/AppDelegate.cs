@@ -4,6 +4,7 @@
  */
 
 using Foundation;
+using Microsoft.Identity.Client;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Platform;
 using MvvmCross.Platform;
@@ -38,6 +39,12 @@ namespace XamarinNativePropertyManager.iOS
 
 			return true;
 		}
+
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
+            return true;
+        }
 
 		public override void OnResignActivation(UIApplication application)
 		{
