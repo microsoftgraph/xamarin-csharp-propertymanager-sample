@@ -58,6 +58,8 @@ namespace XamarinNativePropertyManager
 
         public static string[] DocumentFileExtensions => new [] { ".docx", ".xlsx", ".one", ".pptx" };
 
+        public static string PlannerAssignmentOrderHint => " !";
+
         public static readonly JsonSerializerSettings JsonSerializerSettings = new JsonSerializerSettings
         {
             ContractResolver = new CamelCasePropertyNamesContractResolver(),

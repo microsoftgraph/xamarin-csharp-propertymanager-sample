@@ -20,9 +20,7 @@ namespace XamarinNativePropertyManager.Models
 
         public string Title { get; set; }
 
-        public string CreatedBy { get; set; }
-
-        public string AssignedTo { get; set; }
+        public IdentitySet CreatedBy { get; set; }
 
         public string OrderHint { get; set; }
 
@@ -32,11 +30,7 @@ namespace XamarinNativePropertyManager.Models
 
         public string StartDateTime { get; set; }
 
-        public string AssignedDateTime { get; set; }
-
         public string CreatedDateTime { get; set; }
-
-        public string AssignedBy { get; set; }
 
         public string DueDateTime { get; set; }
 
@@ -45,5 +39,7 @@ namespace XamarinNativePropertyManager.Models
         public string CompletedDateTime { get; set; }
 
         public string ConversationThreadId { get; set; }
+
+        public object Assignments { get; set; }
     }
 }

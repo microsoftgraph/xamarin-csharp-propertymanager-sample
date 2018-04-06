@@ -3,16 +3,11 @@
  *  See LICENSE in the source repository root for complete license information.
  */
 
-namespace XamarinNativePropertyManager.Models
+ namespace XamarinNativePropertyManager.Models
 {
-    public class PlanModel
+    public class Identity
     {
         public string Id { get; set; }
-
-        public string Title { get; set; }
-
-        public string Owner { get; set; }
-
-        public IdentitySet CreatedBy { get; set; }
+        public string DisplayName { get; set; }
     }
 }
