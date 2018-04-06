@@ -177,7 +177,7 @@ namespace XamarinNativePropertyManager.Services
 
         public Task<PlanModel[]> GetGroupPlansAsync(GroupModel group)
         {
-            return GetManyAsync<PlanModel>($"groups/{group.Id}/plans");
+            return GetManyAsync<PlanModel>($"groups/{group.Id}/planner/plans");
         }
 
         public Task<GroupModel> AddGroupAsync(GroupModel group)
@@ -208,7 +208,7 @@ namespace XamarinNativePropertyManager.Services
 
         public Task<PlanModel> AddGroupPlanAsync(GroupModel group, PlanModel plan)
         {
-            return PostAsync("plans", plan);
+            return PostAsync("planner/plans", plan);
         }
 
         public async Task<TableModel<T>> GetGroupTableAsync<T>(GroupModel group, DriveItemModel driveItem, string tableName) where T : TableRowModel, new()
@@ -263,22 +263,22 @@ namespace XamarinNativePropertyManager.Services
 
         public Task<BucketModel[]> GetPlanBucketsAsync(PlanModel plan)
         {
-            return GetManyAsync<BucketModel>($"plans/{plan.Id}/buckets");
+            return GetManyAsync<BucketModel>($"planner/plans/{plan.Id}/buckets");
         }
 
         public Task<TaskModel[]> GetBucketTasksAsync(BucketModel bucket)
         {
-            return GetManyAsync<TaskModel>($"buckets/{bucket.Id}/tasks");
+            return GetManyAsync<TaskModel>($"planner/buckets/{bucket.Id}/tasks");
         }
 
         public Task<BucketModel> AddBucketAsync(BucketModel bucket)
         {
-            return PostAsync("/buckets", bucket);
+            return PostAsync("planner/buckets", bucket);
         }
 
         public Task<TaskModel> AddTaskAsync(TaskModel task)
         {
-            return PostAsync("/tasks", task);
+            return PostAsync("planner/tasks", task);
         }
 
         public async Task<TaskModel> UpdateTaskAsync(TaskModel task)
@@ -290,7 +290,7 @@ namespace XamarinNativePropertyManager.Services
                 task.ETag.Length - 2), true));
 
             // Get result.
-            var result = await PatchAsync($"/tasks/{task.Id}", task);
+            var result = await PatchAsync($"planner/tasks/{task.Id}", task);
 
             // Clear ETag and return the result.
             headers.IfMatch.Clear();

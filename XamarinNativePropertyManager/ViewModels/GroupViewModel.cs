@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -254,10 +255,17 @@ namespace XamarinNativePropertyManager.ViewModels
             var text = TaskText;
             TaskText = "";
 
+            dynamic assignments = new ExpandoObject();
+            var assignmentsDict = assignments as IDictionary<string, object>;
+            assignmentsDict[_configService.User.Id] = new PlannerAssignment()
+            {
+                OrderHint = Constants.PlannerAssignmentOrderHint
+            };
+
             // Create the request object.
             var task = new TaskModel
             {
-                AssignedTo = _configService.User.Id,
+                Assignments = assignments,
                 PlanId = _groupPlan.Id,
                 BucketId = _taskBucket.Id,
                 Title = text
