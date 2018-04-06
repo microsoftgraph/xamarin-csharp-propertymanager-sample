@@ -23,6 +23,9 @@ bld/
 [Oo]bj/
 [Ll]og/
 
+# Visual Studio 2017 Upgrade files
+*.csproj.bak
+
 # Visual Studio 2015 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
@@ -251,3 +254,6 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# VS Code
+.vscode/

@@ -3,9 +3,9 @@
  *  See LICENSE in the source repository root for complete license information.
  */
 
-using System;
+using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Identity.Client;
 using XamarinNativePropertyManager.Services;
 
 namespace XamarinNativePropertyManager.UWP.Services
@@ -14,30 +14,21 @@ namespace XamarinNativePropertyManager.UWP.Services
     {
         public async Task<AuthenticationResult> AcquireTokenAsync()
         {
-            // Clear the cache.
-            TokenCache.DefaultShared.Clear();
-
-            // Create the authentication context.
-            var authenticationContext = new AuthenticationContext(Constants.Authority);
-
-            // Create the platform parameters.
-            var platformParameters = new PlatformParameters(PromptBehavior.Always,
-                false);
+            // Create a public client app
+            PublicClientApplication pca = new PublicClientApplication(Constants.ClientId, Constants.Authority);
 
             // Authenticate the user.
-            var authenticationResult = await authenticationContext.AcquireTokenAsync(
-                Constants.GraphResource, Constants.ClientId, Constants.RedirectUri, platformParameters); 
+            var authenticationResult = await pca.AcquireTokenAsync(Constants.Scopes);
             return authenticationResult;
         }
 
         public async Task<AuthenticationResult> AcquireTokenSilentAsync()
         {
-            // Create the authentication context.
-            var authenticationContext = new AuthenticationContext(Constants.Authority);
+            // Create a public client app
+            PublicClientApplication pca = new PublicClientApplication(Constants.ClientId, Constants.Authority);
 
             // Authenticate the user.
-            var authenticationResult = await authenticationContext.AcquireTokenSilentAsync(
-                Constants.GraphResource, Constants.ClientId);
+            var authenticationResult = await pca.AcquireTokenSilentAsync(Constants.Scopes, pca.Users.FirstOrDefault());
             return authenticationResult;
         }
     }

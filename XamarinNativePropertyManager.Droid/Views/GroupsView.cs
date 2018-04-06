@@ -10,7 +10,7 @@ using Android.OS;
 using Android.Support.V4.View;
 using Android.Support.V7.Widget;
 using Android.Views;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Identity.Client;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using XamarinNativePropertyManager.ViewModels;
@@ -70,7 +70,7 @@ namespace XamarinNativePropertyManager.Droid.Views
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(
+            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(
                 requestCode, resultCode, data);
         }
     }

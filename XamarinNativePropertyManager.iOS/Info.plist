@@ -35,5 +35,18 @@
 	<string>Property Manager</string>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.companyname.xamarinnativepropertymanager-ios</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>msal[CLIENT_ID]</string>
+			</array>
+			<key>CFBundleURLTypes</key>
+			<string>Editor</string>
+		</dict>
+	</array>
 </dict>
 </plist>

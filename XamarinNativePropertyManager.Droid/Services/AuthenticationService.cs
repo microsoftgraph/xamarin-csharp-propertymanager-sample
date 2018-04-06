@@ -4,10 +4,11 @@
  */
 
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Identity.Client;
 using MvvmCross.Platform;
 using MvvmCross.Platform.Droid.Platform;
 using XamarinNativePropertyManager.Services;
@@ -42,27 +43,21 @@ namespace XamarinNativePropertyManager.Droid.Services
                 throw new Exception("Could not find the top Activity.");
             }
 
-            // Clear the cache.
-            TokenCache.DefaultShared.Clear();
+            // Create a public client app
+            PublicClientApplication pca = new PublicClientApplication(Constants.ClientId, Constants.Authority);
 
-            // Create the authentication context.
-            var authenticationContext = new AuthenticationContext(Constants.Authority);
-
-            // Create the platform parameters.
-            var platformParameters = new PlatformParameters(topActivity);
             try
             {
                 // Authenticate the user.
-                var authenticationResult = await authenticationContext.AcquireTokenAsync(
-					Constants.GraphResource, Constants.ClientId, Constants.RedirectUri, platformParameters);
+                var authenticationResult = await pca.AcquireTokenAsync(Constants.Scopes, new UIParent(topActivity));
 
                 // Naively store the unique user id.
-                SaveCurrentUUID(authenticationResult.UserInfo.UniqueId);
+                SaveCurrentUUID(authenticationResult.UniqueId);
                 return authenticationResult;
             }
-            catch (AdalException ex)
+            catch (MsalClientException ex)
             {
-                if (ex.ErrorCode == AdalError.AuthenticationCanceled)
+                if (ex.ErrorCode == MsalClientException.AuthenticationCanceledError)
                 {
                     return null;
                 }
@@ -72,15 +67,14 @@ namespace XamarinNativePropertyManager.Droid.Services
 
         public async Task<AuthenticationResult> AcquireTokenSilentAsync()
         {
-            // Create the authentication context.
-            var authenticationContext = new AuthenticationContext(Constants.Authority);
+            // Create a public client app
+            PublicClientApplication pca = new PublicClientApplication(Constants.ClientId, Constants.Authority);
 
             // Try to get a unique user id.
             var uuid = GetCurrentUUID();
 
             // Authenticate the user.
-            var authenticationResult = await authenticationContext.AcquireTokenSilentAsync(
-                Constants.GraphResource, Constants.ClientId, new UserIdentifier(uuid, UserIdentifierType.UniqueId));
+            var authenticationResult = await pca.AcquireTokenSilentAsync(Constants.Scopes, pca.Users.FirstOrDefault());
             return authenticationResult;
         }
     }
