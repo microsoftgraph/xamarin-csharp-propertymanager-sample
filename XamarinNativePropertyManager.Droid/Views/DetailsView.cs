@@ -55,5 +55,5 @@ namespace XamarinNativePropertyManager.Droid.Views
             AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(
                 requestCode, resultCode, data);
         }
+        }
     }
-}

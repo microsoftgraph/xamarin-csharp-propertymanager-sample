@@ -4,6 +4,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Android.App;
@@ -73,8 +74,12 @@ namespace XamarinNativePropertyManager.Droid.Services
             // Try to get a unique user id.
             var uuid = GetCurrentUUID();
 
+            IEnumerable<IAccount> accounts = await pca.GetAccountsAsync();
+            var firstAccount = accounts.FirstOrDefault();
+
             // Authenticate the user.
-            var authenticationResult = await pca.AcquireTokenSilentAsync(Constants.Scopes, pca.Users.FirstOrDefault());
+            // var authenticationResult = await pca.AcquireTokenSilentAsync(Constants.Scopes, pca.Users.FirstOrDefault());
+            var authenticationResult = await pca.AcquireTokenSilentAsync(Constants.Scopes, firstAccount);
             return authenticationResult;
         }
     }

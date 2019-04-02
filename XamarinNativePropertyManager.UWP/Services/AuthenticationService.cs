@@ -3,6 +3,7 @@
  *  See LICENSE in the source repository root for complete license information.
  */
 
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Identity.Client;
@@ -27,8 +28,11 @@ namespace XamarinNativePropertyManager.UWP.Services
             // Create a public client app
             PublicClientApplication pca = new PublicClientApplication(Constants.ClientId, Constants.Authority);
 
+            IEnumerable<IAccount> accounts = await pca.GetAccountsAsync();
+            var firstAccount = accounts.FirstOrDefault();
+
             // Authenticate the user.
-            var authenticationResult = await pca.AcquireTokenSilentAsync(Constants.Scopes, pca.Users.FirstOrDefault());
+            var authenticationResult = await pca.AcquireTokenSilentAsync(Constants.Scopes, firstAccount);
             return authenticationResult;
         }
     }
