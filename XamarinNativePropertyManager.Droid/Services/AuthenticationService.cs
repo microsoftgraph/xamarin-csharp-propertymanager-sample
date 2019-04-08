@@ -78,7 +78,6 @@ namespace XamarinNativePropertyManager.Droid.Services
             var firstAccount = accounts.FirstOrDefault();
 
             // Authenticate the user.
-            // var authenticationResult = await pca.AcquireTokenSilentAsync(Constants.Scopes, pca.Users.FirstOrDefault());
             var authenticationResult = await pca.AcquireTokenSilentAsync(Constants.Scopes, firstAccount);
             return authenticationResult;
         }
