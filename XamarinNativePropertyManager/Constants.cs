@@ -13,7 +13,6 @@ namespace XamarinNativePropertyManager
     public static class Constants
     {
         public static string Authority => "https://login.microsoftonline.com/[TENANT_ID_OR_NAME]";
-
         public static string ClientId => "[CLIENT_ID]";
 
         public static List<string> Scopes => new List<string>()
