@@ -1,3 +1,17 @@
+---
+page_type: sample
+products:
+- ms-graph
+languages:
+- csharp
+extensions:
+  contentType: samples
+  technologies:
+  - Microsoft Graph
+  platforms:
+  - Xamarin
+  createdDate: 8/3/2016 8:57:27 AM
+---
 # Microsoft Graph Property Manager Sample for Xamarin Native
 
 ## Table of contents
