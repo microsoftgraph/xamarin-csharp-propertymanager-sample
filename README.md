@@ -3,7 +3,7 @@ page_type: sample
 products:
 - ms-graph
 languages:
-- csharp
+- csharp 
 extensions:
   contentType: samples
   technologies:
