@@ -3,7 +3,8 @@ page_type: sample
 products:
 - ms-graph
 languages:
-- csharp 
+- csharp
+description: "Demonstrates how to use the Microsoft Graph as the only back-end component for a complete property management solution."
 extensions:
   contentType: samples
   technologies:
