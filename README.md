@@ -1,19 +1,10 @@
----
-page_type: sample
-products:
-- ms-graph
-languages:
-- csharp
-description: "Demonstrates how to use the Microsoft Graph as the only back-end component for a complete property management solution."
-extensions:
-  contentType: samples
-  technologies:
-  - Microsoft Graph
-  platforms:
-  - Xamarin
-  createdDate: 8/3/2016 8:57:27 AM
----
-# Microsoft Graph Property Manager Sample for Xamarin Native
+# [ARCHIVED] Microsoft Graph Property Manager Sample for Xamarin Native
+
+## IMPORTANT
+
+**This project is being archived and replaced with the [Build Xamarin apps with the Microsoft Graph SDK training](https://github.com/microsoftgraph/msgraph-training-xamarin). As part of the archival process, we're closing all open issues and pull requests.**
+
+**You can continue to use this sample "as-is", but it won't be maintained moving forward. We apologize for any inconvenience.**
 
 ## Table of contents
 
